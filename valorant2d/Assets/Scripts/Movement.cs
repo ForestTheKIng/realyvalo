@@ -137,6 +137,7 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
     [PunRPC]
     void RPC_TakeDamage(float damage, PhotonMessageInfo info){
         if (healthbarImage != null){
+            currentHealth -= damage;
             healthbarImage.fillAmount = currentHealth / maxHealth;
         }
 
