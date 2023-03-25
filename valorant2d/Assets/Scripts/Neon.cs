@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class Neon : MonoBehaviour
 {
@@ -14,22 +16,28 @@ public class Neon : MonoBehaviour
     public Movement movement;
     public float NeonModeSpeed = 7.0f;
     public GameObject energyBar;
+    PhotonView pv;
 
+    void Awake(){
+        pv = GetComponent<PhotonView>();    
+    }
 
     void Update()
     {
-        energyImage.fillAmount = currentEnergy / maxEnergy;
-        if (Input.GetKey(KeyCode.LeftShift) && currentEnergy >= 0){
-            NeonMode();
-        } else {
-            if (currentEnergy <= 100){
-                currentEnergy += 2 * Time.deltaTime;
+        if (pv.IsMine){
+            energyImage.fillAmount = currentEnergy / maxEnergy;
+            if (Input.GetKey(KeyCode.LeftShift) && currentEnergy >= 0){
+                NeonMode();
+            } else {
+                if (currentEnergy <= 100){
+                    currentEnergy += 2 * Time.deltaTime;
+                }
+                movement.moveSpeed = 5f;
+                pp.SetActive(false);
+                outline.SetActive(false);
+                steps.GetComponent<ParticleSystem>().Pause();
+                steps.SetActive(false);
             }
-            movement.moveSpeed = 5f;
-            pp.SetActive(false);
-            outline.SetActive(false);
-            steps.GetComponent<ParticleSystem>().Pause();
-            steps.SetActive(false);
         }
     }
 
