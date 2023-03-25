@@ -68,5 +68,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killFeedItem: {fileID: 0}
+  roundNumber: 0
   killFeedItemPrefab: {fileID: 0}
   killFeedContent: {fileID: 0}
