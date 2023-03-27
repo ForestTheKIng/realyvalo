@@ -2042,6 +2042,7 @@ MonoBehaviour:
   - {fileID: 7148959342336440784}
   - {fileID: 865100349728567669}
   currentHealth: 100
+  team: 0
 --- !u!50 &7403051017752085748
 Rigidbody2D:
   serializedVersion: 4

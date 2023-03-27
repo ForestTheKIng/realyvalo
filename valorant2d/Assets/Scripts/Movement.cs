@@ -24,6 +24,7 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
     int previousItemIndex = -1;
     const float maxHealth = 100f;
     public float currentHealth = maxHealth;
+    public int team;
 
 
     void Awake() 
@@ -35,6 +36,14 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
     void Start(){
         if (pv.IsMine){
             EquipItem(0);
+            Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
+            if (player.CustomProperties.ContainsKey(TEAM_PROPERTY_KEY))
+            {
+                object teamObj = player.CustomProperties[TEAM_PROPERTY_KEY];
+                team = (int)teamObj;
+            } else {
+                Debug.LogError("Erorr: No team assigned");
+            }
         } else{
             rb.isKinematic = true;
             Destroy(ui);
@@ -100,31 +109,24 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
     }
     private void FixedUpdate()
     {
-        Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
-        if (player.CustomProperties.ContainsKey(TEAM_PROPERTY_KEY))
-        {
-            object teamObj = player.CustomProperties[TEAM_PROPERTY_KEY];
-            int team = (int)teamObj;
-            if (team == 0) {
-                if(pv.IsMine)
-                {
-                    rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-                    Vector2 lookDir = mousePos - rb.position;
-                    float angle = Mathf.Atan2(lookDir.y ,lookDir.x) * Mathf.Rad2Deg - 90f;
-                    rb.rotation = angle;
-                }
-            } else if (team == 1) {
-                if(pv.IsMine && jett.isDashing == false)
-                {
-                    rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (team == 0) {
+            if(pv.IsMine)
+            {
+                rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-                    Vector2 lookDir = mousePos - rb.position;
-                    float angle = Mathf.Atan2(lookDir.y ,lookDir.x) * Mathf.Rad2Deg - 90f;
-                    rb.rotation = angle;
-                }
-            } else {
-                Debug.LogError("Erorr: No team assigned");
+                Vector2 lookDir = mousePos - rb.position;
+                float angle = Mathf.Atan2(lookDir.y ,lookDir.x) * Mathf.Rad2Deg - 90f;
+                rb.rotation = angle;
+            }
+        } else if (team == 1) {
+            if(pv.IsMine && jett.isDashing == false)
+            {
+                rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+                Vector2 lookDir = mousePos - rb.position;
+                float angle = Mathf.Atan2(lookDir.y ,lookDir.x) * Mathf.Rad2Deg - 90f;
+                rb.rotation = angle;
             }
         }
 

@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     [SerializeField] GameObject killFeedItemPrefab;
     [SerializeField] Transform killFeedContent;
+    public Timer manager;
 
     private const string TEAM_PROPERTY_KEY = "team";
 
@@ -39,6 +40,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         if (pv.IsMine){
             CreateController();
         }
+        manager = GameObject.Find("CountdownTimer").GetComponent<Timer>();
     }
 
     
@@ -62,6 +64,11 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public void Die(){
         if (controller == null){
             return;
+        }
+        if (controller.GetComponent<Movement>().team == 0){
+            manager.deadBlueTeamPlayers += 1;
+        } else if (controller.GetComponent<Movement>().team == 1){
+            manager.deadRedTeamPlayers += 1;
         }
         PhotonNetwork.Destroy(controller);
         controller.SetActive(false);

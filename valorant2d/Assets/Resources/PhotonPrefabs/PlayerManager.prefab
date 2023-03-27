@@ -71,3 +71,4 @@ MonoBehaviour:
   roundNumber: 0
   killFeedItemPrefab: {fileID: 0}
   killFeedContent: {fileID: 0}
+  manager: {fileID: 0}
