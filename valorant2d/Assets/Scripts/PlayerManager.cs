@@ -37,10 +37,11 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
+
         if (pv.IsMine){
             CreateController();
         }
-        manager = GameObject.Find("CountdownTimer").GetComponent<Timer>();
     }
 
     

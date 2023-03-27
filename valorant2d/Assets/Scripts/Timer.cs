@@ -22,8 +22,8 @@ public class Timer : MonoBehaviourPunCallbacks
 
     private int blueTeamPlayers;
     private int redTeamPlayers;
-    public int deadBlueTeamPlayers;
-    public int deadRedTeamPlayers;
+    public int deadBlueTeamPlayers = 0;
+    public int deadRedTeamPlayers = 0;
 
     // Update is called once per frame
     private void Start() {
