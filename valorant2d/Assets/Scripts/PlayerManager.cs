@@ -65,9 +65,10 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         if (controller == null){
             return;
         }
-        if (controller.GetComponent<Movement>().team == 0){
+        Debug.Log(controller.transform.GetChild(1).GetComponent<Movement>() + "child of index 1" + controller.transform.GetChild(1));
+        if (controller.transform.GetChild(1).GetComponent<Movement>().team == 0){
             manager.deadBlueTeamPlayers += 1;
-        } else if (controller.GetComponent<Movement>().team == 1){
+        } else if (controller.transform.GetChild(1).GetComponent<Movement>().team == 1){
             manager.deadRedTeamPlayers += 1;
         }
         PhotonNetwork.Destroy(controller);
