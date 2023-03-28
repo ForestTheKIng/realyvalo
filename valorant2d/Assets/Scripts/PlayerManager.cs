@@ -28,6 +28,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public Timer manager;
 
     private const string TEAM_PROPERTY_KEY = "team";
+    private bool spectate = false;
+    private GameObject spectateCam;
 
     void Awake() {
         pv = GetComponent<PhotonView>();
@@ -37,6 +39,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        spectateCam = GameObject.Find("SpectateCamera");
         manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
 
         if (pv.IsMine){
@@ -44,8 +47,19 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
     }
 
+    void Update(){
+        if (spectate == true){
+            controller.transform.GetChild(0).gameObject.SetActive(false);
+            spectateCam.SetActive(true);
+        } else if (spectate == false){
+            controller.transform.GetChild(0).gameObject.SetActive(true);
+            spectateCam.SetActive(false);
+        }
+    }
+
     
-    void CreateController(){
+    public void CreateController(){
+        spectate = false;
         Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
         object teamObj = player.CustomProperties[TEAM_PROPERTY_KEY];
         int team = (int)teamObj;
@@ -74,7 +88,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
         PhotonNetwork.Destroy(controller);
         controller.SetActive(false);
-        CreateController();
+        spectate = true;
         
         deaths++;
 

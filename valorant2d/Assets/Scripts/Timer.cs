@@ -24,6 +24,17 @@ public class Timer : MonoBehaviourPunCallbacks
     private int redTeamPlayers;
     public int deadBlueTeamPlayers = 0;
     public int deadRedTeamPlayers = 0;
+    public TMP_Text blueScoreText;
+    public TMP_Text redScoreText;
+    public int blueScore = 0;
+    public int redScore = 0;
+
+    private int team;
+
+    private void Awake() {
+        blueScoreText = GameObject.Find("BlueScoreText").GetComponent<TMP_Text>();
+        redScoreText = GameObject.Find("RedScoreText").GetComponent<TMP_Text>();
+    }
 
     // Update is called once per frame
     private void Start() {
@@ -35,7 +46,7 @@ public class Timer : MonoBehaviourPunCallbacks
             // Get the player's team number from their custom properties
             if (player.CustomProperties.TryGetValue("team", out object teamObj))
             {
-                int team = (int)teamObj;
+                team = (int)teamObj;
                 if (team == 0) {
                     blueTeamPlayers += 1;
                 } else if (team == 1) {
@@ -53,12 +64,37 @@ public class Timer : MonoBehaviourPunCallbacks
     }
 
 
+    public void NewRound(){
+        // Find all instances of the script "MyScript" in the scene
+        PlayerManager[] scripts = GameObject.FindObjectsOfType<PlayerManager>();
+        
+        deadBlueTeamPlayers = 0;
+        deadRedTeamPlayers = 0;
+        // Call the "MyFunction" function on all instances of "MyScript"
+        foreach (PlayerManager script in scripts)
+        {
+            script.CreateController();
+        }
+        gameStarted = true;
+    }
+
+
     void Update()
     {
-        if (deadBlueTeamPlayers == blueTeamPlayers) {
+        redScoreText.text = "Red: " + redScore;
+        blueScoreText.text = "Blue: " + blueScore;
+
+        if (redScore == 13){
             Debug.Log("red won");
-        } else if (deadRedTeamPlayers == redTeamPlayers) {
+        } else if (blueScore == 13){
             Debug.Log("blue won");
+        }
+
+        if (deadBlueTeamPlayers == blueTeamPlayers) {
+            redScore += 1;
+            
+        } else if (deadRedTeamPlayers == redTeamPlayers) {
+            blueScore += 1;
         }
 
         if (gameStarted == true){
@@ -69,6 +105,7 @@ public class Timer : MonoBehaviourPunCallbacks
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         } else {
+            barriers.SetActive(true);
             startCurrentTime -= 1 * Time.deltaTime;
             int startTimeInt = (int) Math.Round(startCurrentTime);
             timerText.text = startTimeInt.ToString();
