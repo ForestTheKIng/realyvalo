@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     private const string TEAM_PROPERTY_KEY = "team";
     private bool spectate = false;
-    private GameObject spectateCam;
+    public GameObject spectateCam;
 
     void Awake() {
         pv = GetComponent<PhotonView>();
@@ -39,7 +39,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        spectateCam = GameObject.Find("SpectateCamera");
         manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
 
         if (pv.IsMine){
@@ -47,12 +46,15 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
     }
 
+    void SpectateCam() {
+        spectateCam = controller.transform.GetChild(2).gameObject;
+        Debug.Log(spectateCam);
+    }
+
     void Update(){
         if (spectate == true){
-            controller.transform.GetChild(0).gameObject.SetActive(false);
             spectateCam.SetActive(true);
         } else if (spectate == false){
-            controller.transform.GetChild(0).gameObject.SetActive(true);
             spectateCam.SetActive(false);
         }
     }
@@ -74,20 +76,20 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 Debug.LogError("Erorr: No team assigned");
             }
         }
+        SpectateCam();
     }
 
     public void Die(){
         if (controller == null){
             return;
         }
-        Debug.Log(controller.transform.GetChild(1).GetComponent<Movement>() + "child of index 1" + controller.transform.GetChild(1));
         if (controller.transform.GetChild(1).GetComponent<Movement>().team == 0){
             manager.deadBlueTeamPlayers += 1;
         } else if (controller.transform.GetChild(1).GetComponent<Movement>().team == 1){
             manager.deadRedTeamPlayers += 1;
         }
-        PhotonNetwork.Destroy(controller);
-        controller.SetActive(false);
+        PhotonNetwork.Destroy(controller.transform.GetChild(1).gameObject);
+        controller.transform.GetChild(1).gameObject.SetActive(false);
         spectate = true;
         
         deaths++;
