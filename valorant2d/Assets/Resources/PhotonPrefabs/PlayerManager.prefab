@@ -72,4 +72,3 @@ MonoBehaviour:
   killFeedItemPrefab: {fileID: 0}
   killFeedContent: {fileID: 0}
   manager: {fileID: 0}
-  spectateCam: {fileID: 0}

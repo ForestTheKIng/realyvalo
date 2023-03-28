@@ -30,15 +30,18 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private const string TEAM_PROPERTY_KEY = "team";
     private bool spectate = false;
     private GameObject specCam;
+    private GameObject mCam;
 
     void Awake() {
         pv = GetComponent<PhotonView>();
         Settings.Instance.SceneChanged();
+
         // killFeedItemPrefab = Path.Combine("Prefabs", "KillFeedItem");
     }
     // Start is called before the first frame update
     void Start()
     {
+        mCam = controller.transform.GetChild(0).gameObject;
         manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
 
         if (pv.IsMine){
@@ -52,10 +55,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     void Update(){
-        if (specCam != null){
+        if (specCam != null && mCam != null){
             if (spectate == true){
+                mCam.SetActive(false);
                 specCam.SetActive(true);
             } else if (spectate == false){
+                mCam.SetActive(true);
                 specCam.SetActive(false);
             } 
         }
