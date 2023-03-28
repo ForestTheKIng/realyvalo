@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     private const string TEAM_PROPERTY_KEY = "team";
     private bool spectate = false;
-    public GameObject spectateCam;
+    private GameObject specCam;
 
     void Awake() {
         pv = GetComponent<PhotonView>();
@@ -47,15 +47,17 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     void SpectateCam() {
-        spectateCam = controller.transform.GetChild(2).gameObject;
-        Debug.Log(spectateCam);
+        specCam = controller.transform.GetChild(2).gameObject;
+        Debug.Log(specCam);
     }
 
     void Update(){
-        if (spectate == true){
-            spectateCam.SetActive(true);
-        } else if (spectate == false){
-            spectateCam.SetActive(false);
+        if (specCam != null){
+            if (spectate == true){
+                specCam.SetActive(true);
+            } else if (spectate == false){
+                specCam.SetActive(false);
+            } 
         }
     }
 
@@ -76,7 +78,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 Debug.LogError("Erorr: No team assigned");
             }
         }
-        SpectateCam();
+        SpectateCam();  
     }
 
     public void Die(){
