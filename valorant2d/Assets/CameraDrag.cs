@@ -4,45 +4,31 @@ using UnityEngine;
 
 public class CameraDrag : MonoBehaviour
 {
-    private Vector3 _origin;
-    private Vector3 _difference;
-    private Vector3 _resetCamera;
+    public Rigidbody2D rb;
     public Camera cam;
+    Vector2 movement;
+    Vector2 mousePos;
+    public float moveSpeed = 5f;
 
-    private bool _drag = false;
-
-    
-
-    private void Start()
+    private void Update()
     {
-        _resetCamera = cam.transform.position;
+
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+
+
     }
 
-
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        if (Input.GetMouseButton(0))
-        {
-            _difference = (cam.ScreenToWorldPoint(Input.mousePosition)) - cam.transform.position;
-            if(_drag == false)
-            {
-                _drag = true;
-                _origin = cam.ScreenToWorldPoint(Input.mousePosition);
-            }
 
-        }
-        else
-        {
-            _drag = false;
-        }
+          rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        if (_drag)
-        {
-            cam.transform.position = _origin - _difference * 0.5f;
-        }
-
-        if (Input.GetMouseButton(1))
-            cam.transform.position = _resetCamera;
+                Vector2 lookDir = mousePos - rb.position;
+                float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
 
     }
 }

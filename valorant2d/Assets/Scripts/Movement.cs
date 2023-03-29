@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviourPunCallbacks, IDamageable
 {
-    private const string TEAM_PROPERTY_KEY = "team";
+    private const string _TEAM_PROPERTY_KEY = "team";
     PlayerManager playerManager;
     public float moveSpeed = 5f;
     [SerializeField] Image healthbarImage;
@@ -37,9 +37,9 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
         if (pv.IsMine){
             EquipItem(0);
             Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
-            if (player.CustomProperties.ContainsKey(TEAM_PROPERTY_KEY))
+            if (player.CustomProperties.ContainsKey(_TEAM_PROPERTY_KEY))
             {
-                object teamObj = player.CustomProperties[TEAM_PROPERTY_KEY];
+                object teamObj = player.CustomProperties[_TEAM_PROPERTY_KEY];
                 team = (int)teamObj;
             } else {
                 Debug.LogError("Erorr: No team assigned");

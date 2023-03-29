@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 4421170516442234255}
   - component: {fileID: 8728352602278395007}
   - component: {fileID: 661743945502469235}
+  - component: {fileID: 4283000245593170215}
   m_Layer: 0
   m_Name: SpectateCamera
   m_TagString: Untagged
@@ -664,8 +665,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -734,10 +735,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a0423554800724a97e4eb467cf5556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 4283000245593170215}
   cam: {fileID: 6405624741165342721}
-  zoomStep: 0
-  minCamSize: 0
-  maxCamSize: 0
+  moveSpeed: 15
+--- !u!50 &4283000245593170215
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755272774651393889}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2910543211744047721
 GameObject:
   m_ObjectHideFlags: 0
