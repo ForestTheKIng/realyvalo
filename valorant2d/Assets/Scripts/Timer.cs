@@ -74,6 +74,7 @@ public class Timer : MonoBehaviourPunCallbacks
         foreach (PlayerManager script in scripts)
         {
             script.CreateController();
+            script.NewRound = true;
         }
         gameStarted = true;
     }
@@ -92,9 +93,11 @@ public class Timer : MonoBehaviourPunCallbacks
 
         if (deadBlueTeamPlayers == blueTeamPlayers) {
             redScore += 1;
+            NewRound();
             
         } else if (deadRedTeamPlayers == redTeamPlayers) {
             blueScore += 1;
+            NewRound();
         }
 
         if (gameStarted == true){

@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 {
 
     
-    PhotonView pv;
+    private PhotonView _pv;
 
     GameObject controller;
 
@@ -31,9 +31,16 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private bool spectate = false;
     private GameObject specCam;
     private GameObject mCam;
+    public bool NewRound;
+
+    private GameObject _playerObj;
 
     void Awake() {
-        pv = GetComponent<PhotonView>();
+        _pv = GetComponent<PhotonView>();
+        if (controller != null)
+        {
+            _playerObj = controller.transform.GetChild(1).gameObject;
+        }
         Settings.Instance.SceneChanged();
 
         // killFeedItemPrefab = Path.Combine("Prefabs", "KillFeedItem");
@@ -43,7 +50,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     {
         manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
 
-        if (pv.IsMine){
+        if (_pv.IsMine){
             CreateController();
         }
     }
@@ -73,12 +80,19 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         object teamObj = player.CustomProperties[TEAM_PROPERTY_KEY];
         int team = (int)teamObj;
         Transform spawnpoint = SpawnManager.Instance.GetSpawnPoint(team);
+        if (_playerObj == null && NewRound)
+        {
+            Debug.Log("destroying controller");
+            PhotonNetwork.Destroy(controller);
+            controller.SetActive(false);
+        }
+
         if (player.CustomProperties.ContainsKey(TEAM_PROPERTY_KEY))
         {
             if (team == 0) {
-                controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "NeonContainer"), spawnpoint.position, spawnpoint.rotation, 0, new object[] {pv.ViewID });
+                controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "NeonContainer"), spawnpoint.position, spawnpoint.rotation, 0, new object[] {_pv.ViewID });
             } else if (team == 1) {
-                controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "JettContainer"), spawnpoint.position, spawnpoint.rotation, 0, new object[] {pv.ViewID });
+                controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "JettContainer"), spawnpoint.position, spawnpoint.rotation, 0, new object[] {_pv.ViewID });
             } else {
                 Debug.LogError("Erorr: No team assigned");
             }
@@ -111,7 +125,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         Debug.Log("Instantiating kill message: " + killer + " " + "brutally murdered" + " " + killed);
         GameObject killFeedItem = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs","KillFeedItem"), Vector3.zero, Quaternion.identity);
         killFeedItem.GetComponent<KillFeedItem>().SetUp(killer, killed);
-        pv.RPC("RPC_SetKillMessageParent", RpcTarget.All);
+        _pv.RPC("RPC_SetKillMessageParent", RpcTarget.All);
     }
 
     [PunRPC]
@@ -121,7 +135,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     public void GetKill(){
-        pv.RPC(nameof(RPC_GetKill), pv.Owner);
+        _pv.RPC(nameof(RPC_GetKill), _pv.Owner);
     }
 
     public void StartRound(){
@@ -140,7 +154,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     public static PlayerManager Find(Player player){
-        return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x.pv.Owner == player);
+        return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x._pv.Owner == player);
     }
 
 }
