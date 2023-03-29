@@ -65,18 +65,11 @@ public class Timer : MonoBehaviourPunCallbacks
 
 
     public void NewRound(){
-        // Find all instances of the script "MyScript" in the scene
-        PlayerManager[] scripts = GameObject.FindObjectsOfType<PlayerManager>();
-        
         deadBlueTeamPlayers = 0;
         deadRedTeamPlayers = 0;
-        // Call the "MyFunction" function on all instances of "MyScript"
-        foreach (PlayerManager script in scripts)
-        {
-            script.CreateController();
-            script.NewRound = true;
-        }
+        // Call the "MyFunction" function on all instances of "MyScript
         gameStarted = true;
+        photonView.RPC("RPC_CreateController", RpcTarget.All, false);
     }
 
 

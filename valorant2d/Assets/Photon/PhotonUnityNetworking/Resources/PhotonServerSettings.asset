@@ -45,6 +45,7 @@ MonoBehaviour:
   - RPC_InstantiateKillFeedMessage
   - RPC_SetKillMessageParent
   - RPC_GetKill
+  - RPC_CreateController
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
