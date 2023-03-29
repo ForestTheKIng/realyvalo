@@ -1,30 +1,42 @@
+using System;
 using UnityEngine;
 
 public class CameraDrag : MonoBehaviour
 {
-    private float dragSpeed = 10;
-    private Vector3 dragOrigin;
-    private Camera mainCamera;
+    public Camera cam;
+    private Vector3 _dragOrigin;
 
-    private void Start()
+    [SerializeField] private float zoomStep, minCamSize, maxCamSize;
+    
+    private void Update()
     {
-        mainCamera = this.GetComponent<Camera>();
+        PanCamera();
     }
 
-    void Update()
+    private void PanCamera()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            dragOrigin = Input.mousePosition;
+            _dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
         }
 
         if (Input.GetMouseButton(0))
         {
-            Vector3 pos = mainCamera.ScreenToViewportPoint(dragOrigin - Input.mousePosition);
-            Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed, 0);
-
-            transform.Translate(move, Space.Self);
-            dragOrigin = Input.mousePosition;
+            var difference = _dragOrigin - cam.ScreenToWorldPoint(Input.mousePosition);
+            
         }
+    }
+
+
+    public void ZoomIn()
+    {
+        var newSize = cam.orthographicSize + zoomStep;
+        cam.orthographicSize = Mathf.Clamp(newSize, minCamSize, maxCamSize);
+    }
+
+    public void ZoomOut()
+    {
+        var newSize = cam.orthographicSize + zoomStep;
+        cam.orthographicSize = Mathf.Clamp(newSize, minCamSize, maxCamSize);
     }
 }

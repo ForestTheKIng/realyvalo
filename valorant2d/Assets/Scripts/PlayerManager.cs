@@ -41,7 +41,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        mCam = controller.transform.GetChild(0).gameObject;
         manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
 
         if (pv.IsMine){
@@ -50,8 +49,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     void SpectateCam() {
+        mCam = controller.transform.GetChild(0).gameObject;
         specCam = controller.transform.GetChild(2).gameObject;
-        Debug.Log(specCam);
+        specCam.transform.position = new Vector3(-87,-5, -20);
     }
 
     void Update(){
