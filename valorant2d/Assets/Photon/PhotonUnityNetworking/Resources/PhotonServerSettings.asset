@@ -46,6 +46,9 @@ MonoBehaviour:
   - RPC_SetKillMessageParent
   - RPC_GetKill
   - RPC_CreateController
+  - Fortnite
+  - RPC_UpdateDeadBluePlayers
+  - RPC_UpdateDeadRedPlayers
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

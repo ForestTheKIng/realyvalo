@@ -25800,6 +25800,7 @@ GameObject:
   - component: {fileID: 1513065972}
   - component: {fileID: 1513065971}
   - component: {fileID: 1513065975}
+  - component: {fileID: 1513065976}
   m_Layer: 5
   m_Name: ScoreboardCanvas
   m_TagString: Untagged
@@ -25908,12 +25909,36 @@ MonoBehaviour:
   timerText: {fileID: 1406171329}
   gameStarted: 0
   barriers: {fileID: 427118081}
+  blueTeamPlayers: 0
+  redTeamPlayers: 0
   deadBlueTeamPlayers: 0
   deadRedTeamPlayers: 0
   blueScoreText: {fileID: 0}
   redScoreText: {fileID: 0}
   blueScore: 0
   redScore: 0
+--- !u!114 &1513065976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513065970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1517310043
 GameObject:
   m_ObjectHideFlags: 0

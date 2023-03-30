@@ -20,24 +20,42 @@ public class Timer : MonoBehaviourPunCallbacks
     public bool gameStarted = false;
     public GameObject barriers;
 
-    private int blueTeamPlayers;
-    private int redTeamPlayers;
+    public int blueTeamPlayers;
+    public int redTeamPlayers;
     public int deadBlueTeamPlayers = 0;
     public int deadRedTeamPlayers = 0;
     public TMP_Text blueScoreText;
     public TMP_Text redScoreText;
     public int blueScore = 0;
     public int redScore = 0;
+    private PhotonView pv;
+    private PlayerManager manager;
 
     private int team;
 
     private void Awake() {
+        pv = GetComponent<PhotonView>();
         blueScoreText = GameObject.Find("BlueScoreText").GetComponent<TMP_Text>();
         redScoreText = GameObject.Find("RedScoreText").GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
     private void Start() {
+        // Find all instances of PlayerManager in the scene
+        PlayerManager[] playerManagers = FindObjectsOfType<PlayerManager>();
+
+        // Loop through each PlayerManager to find the one owned by the local client
+        foreach (PlayerManager playerManager in playerManagers)
+        {
+            if (playerManager.pv.IsMine)
+            {
+                // Set myPlayerManager to the PlayerManager owned by the local client
+                manager = playerManager;
+
+                // Stop searching for PlayerManagers
+                break;
+            }
+        }
         Player[] players = PhotonNetwork.PlayerList;
 
         // Iterate through each player and check what team they are on
@@ -65,16 +83,17 @@ public class Timer : MonoBehaviourPunCallbacks
 
 
     public void NewRound(){
+        Debug.Log("new round");
         deadBlueTeamPlayers = 0;
         deadRedTeamPlayers = 0;
-        // Call the "MyFunction" function on all instances of "MyScript
         gameStarted = true;
-        photonView.RPC("RPC_CreateController", RpcTarget.All, false);
+        manager.RunRPC();
     }
 
 
     void Update()
     {
+        Debug.Log(deadRedTeamPlayers + " " + deadBlueTeamPlayers);
         redScoreText.text = "Red: " + redScore;
         blueScoreText.text = "Blue: " + blueScore;
 
@@ -86,10 +105,12 @@ public class Timer : MonoBehaviourPunCallbacks
 
         if (deadBlueTeamPlayers == blueTeamPlayers) {
             redScore += 1;
+            Debug.Log("no blue players");
             NewRound();
             
         } else if (deadRedTeamPlayers == redTeamPlayers) {
             blueScore += 1;
+            Debug.Log("No red players");
             NewRound();
         }
 
