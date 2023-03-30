@@ -67,6 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0ed65ea15ab224fb92ec859935374f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pv: {fileID: 0}
+  controller: {fileID: 0}
   killFeedItem: {fileID: 0}
+  roundNumber: 0
   killFeedItemPrefab: {fileID: 0}
   killFeedContent: {fileID: 0}
+  manager: {fileID: 0}

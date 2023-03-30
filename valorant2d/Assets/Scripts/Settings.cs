@@ -38,11 +38,11 @@ public class Settings : MonoBehaviour
 
     public void SceneChanged(){        
         AsignVars();
-        if (disabled == true){
-            postProccess.SetActive(false);
-        } else {
-            postProccess.SetActive(true);
-        }
+        // if (disabled == true){
+        //     postProccess.SetActive(false);
+        // } else {
+        //     postProccess.SetActive(true);
+        // }
     }
 }
 
