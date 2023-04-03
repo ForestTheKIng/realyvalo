@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1aac4ceb-0a5c-4b37-a239-5aac3a980e76" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/UnityServicesProjectConfiguration.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/UnityServicesProjectConfiguration.json.meta" beforeDir="false" />
@@ -49,7 +48,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../Builds for my games/Valo2d/CurrentTestBuild\Valorant 2d.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../Builds for my games/Valo2d/CurrentTestBuild/Valorant 2d.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\fdmcp\Documents\Builds for my games\Valo2d\CurrentTestBuild" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -114,7 +113,7 @@
       <workItem from="1680128900722" duration="1267000" />
       <workItem from="1680130622290" duration="6233000" />
       <workItem from="1680488367399" duration="310000" />
-      <workItem from="1680488946916" duration="1663000" />
+      <workItem from="1680488946916" duration="1971000" />
     </task>
     <servers />
   </component>

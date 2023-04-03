@@ -37,7 +37,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
         pv = GetComponent<PhotonView>();
         Settings.Instance.SceneChanged();
         
@@ -57,26 +56,37 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
 
     void SpectateCam() {
+        spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
         mCam = controller.transform.GetChild(0).gameObject;
         specCam = controller.transform.GetChild(2).gameObject;
         specCam.transform.position = new Vector3(-87,-5, -20);
     }
 
     void Update(){
-        if (pv.IsMine && spikeScript.defusing)
+        if (spikeScript != null)
         {
-            spikeScript.defuseText.text = "defusing...";
-        } else if (spikeScript.defusing == false && pv.IsMine){
-            spikeScript.defuseText.text = "";
-        }
-        if (specCam != null && mCam != null){
-            if (spectate == true){
-                mCam.SetActive(false);
-                specCam.SetActive(true);
-            } else if (spectate == false){
-                mCam.SetActive(true);
-                specCam.SetActive(false);
-            } 
+            if (pv.IsMine && spikeScript.defusing)
+            {
+                spikeScript.defuseText.text = "defusing...";
+            }
+            else if (spikeScript.defusing == false && pv.IsMine)
+            {
+                spikeScript.defuseText.text = "";
+            }
+
+            if (specCam != null && mCam != null)
+            {
+                if (spectate == true)
+                {
+                    mCam.SetActive(false);
+                    specCam.SetActive(true);
+                }
+                else if (spectate == false)
+                {
+                    mCam.SetActive(true);
+                    specCam.SetActive(false);
+                }
+            }
         }
     }
 
