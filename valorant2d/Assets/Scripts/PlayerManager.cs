@@ -32,8 +32,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private bool spectate = false;
     private GameObject specCam;
     private GameObject mCam;
+    private PlantSpike plantSpikeScript;
+    private Spike spikeScript;
 
-    void Awake() {
+    void Awake()
+    {
+        spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
         pv = GetComponent<PhotonView>();
         Settings.Instance.SceneChanged();
         
@@ -59,6 +63,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     void Update(){
+        if (pv.IsMine && spikeScript.defusing)
+        {
+            spikeScript.defuseText.text = "defusing...";
+        } else if (spikeScript.defusing == false && pv.IsMine){
+            spikeScript.defuseText.text = "";
+        }
         if (specCam != null && mCam != null){
             if (spectate == true){
                 mCam.SetActive(false);
@@ -89,6 +99,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
         SpectateCam();  
     }
+
 
     [PunRPC]
     public void RPC_CreateController()

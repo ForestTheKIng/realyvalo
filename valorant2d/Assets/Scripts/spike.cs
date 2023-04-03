@@ -1,18 +1,57 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.Serialization;
 
-public class spike : MonoBehaviour
+public class Spike : MonoBehaviour
 {
     private int SpikeTimer;
+    [FormerlySerializedAs("held")] [SerializeField] public bool defusing;
+    public TMP_Text defuseText;
+
+    private Timer manager;
     // Start is called before the first frame update
-    void Start(){
+    void Start()
+    {
+        manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
         StartCoroutine(DetonateTimer());
     }
 
-    public void Update(){
-        if(SpikeTimer >= 46){
+    private void OnTriggerStay(Collider other)
+    {
+        if(Input.GetKeyDown("e")){
+            defusing = true;
+            StartCoroutine(spikeDefuse());
+        }
+    }
+    
+    public IEnumerator spikeDefuse()
+    {
+
+        yield return new WaitForSeconds(4);
+        if(defusing == true)
+        {
+            manager.blueScore += 1;
+            manager.NewRound();
+        }
+    }
+
+    public void Update()
+    {
+        if (SpikeTimer >= 46)
+        {
             explode();
+        }
+
+        if (defusing)
+        {
+            defuseText.text = "defusing...";
+        }
+        else if (defusing == false)
+        {
+            defuseText.text = "";
         }
     }
 
@@ -22,8 +61,9 @@ public class spike : MonoBehaviour
         Debug.Log(SpikeTimer);
     }
 
-    public void explode(){
-        // need win con code first
-        Debug.Log("EXPLODED PEW PEW");
+    public void explode()
+    {
+        manager.redScore += 1;
+        manager.NewRound();
     }
 }
