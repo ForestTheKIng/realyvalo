@@ -56,7 +56,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
 
     void SpectateCam() {
-        spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
         mCam = controller.transform.GetChild(0).gameObject;
         specCam = controller.transform.GetChild(2).gameObject;
         specCam.transform.position = new Vector3(-87,-5, -20);
@@ -65,6 +64,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     void Update(){
         if (spikeScript != null)
         {
+            spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
             if (pv.IsMine && spikeScript.defusing)
             {
                 spikeScript.defuseText.text = "defusing...";
