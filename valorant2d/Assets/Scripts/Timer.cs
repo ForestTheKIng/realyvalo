@@ -87,7 +87,10 @@ public class Timer : MonoBehaviourPunCallbacks
         deadBlueTeamPlayers = 0;
         deadRedTeamPlayers = 0;
         gameStarted = true;
-        manager.RunRPC();
+        if (manager != null)
+        {
+            manager.RunRPC();
+        }
     }
 
 
