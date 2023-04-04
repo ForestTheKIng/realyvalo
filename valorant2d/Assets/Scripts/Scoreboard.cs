@@ -11,30 +11,30 @@ public class Scoreboard : MonoBehaviourPunCallbacks
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] CanvasGroup label;
 
-    Dictionary<Player, ScoreboardItem> scoreboardItems = new Dictionary<Player, ScoreboardItem>(); 
+    Dictionary<Photon.Realtime.Player, ScoreboardItem> scoreboardItems = new Dictionary<Photon.Realtime.Player, ScoreboardItem>(); 
 
     void Start(){
-        foreach(Player player in PhotonNetwork.PlayerList){
+        foreach(Photon.Realtime.Player player in PhotonNetwork.PlayerList){
             AddScoreboardItem(player);
         }
     }
 
-    void AddScoreboardItem(Player player){
+    void AddScoreboardItem(Photon.Realtime.Player player){
         ScoreboardItem item = Instantiate(socreboardItemPrefab, container).GetComponent<ScoreboardItem>();
         item.Initialize(player);
         scoreboardItems[player] = item;
     }
 
-    void RemoveScoreboardItem(Player player){
+    void RemoveScoreboardItem(Photon.Realtime.Player player){
         Destroy(scoreboardItems[player].gameObject);
         scoreboardItems.Remove(player);
     }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer){
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer){
         AddScoreboardItem(newPlayer);
     }
 
-    public override void OnPlayerLeftRoom(Player otherPlayer){
+    public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer){
         RemoveScoreboardItem(otherPlayer);
     }
 

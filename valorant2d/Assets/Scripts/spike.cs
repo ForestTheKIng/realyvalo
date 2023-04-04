@@ -1,34 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
 
-public class Spike : MonoBehaviour
+public class Spike : MonoBehaviourPunCallbacks
 {
-    private int SpikeTimer;
-    [FormerlySerializedAs("held")] [SerializeField] public bool defusing;
+    private float _spikeTimer = 1000;
+    public bool defusing;
     public TMP_Text defuseText;
 
-    private Timer manager;
+    private GameManager manager;
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
-        StartCoroutine(DetonateTimer());
+        manager = GameObject.Find("ScoreboardCanvas").GetComponent<GameManager>();
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if(Input.GetKeyDown("e")){
-            defusing = true;
-            StartCoroutine(spikeDefuse());
-        }
-    }
-    
+
+
     public IEnumerator spikeDefuse()
-    {
+    {   
 
         yield return new WaitForSeconds(4);
         if(defusing == true)
@@ -40,7 +35,9 @@ public class Spike : MonoBehaviour
 
     public void Update()
     {
-        if (SpikeTimer >= 46)
+        _spikeTimer -= 1 * Time.deltaTime;
+
+        if (_spikeTimer <= 0)
         {
             explode();
         }
@@ -54,16 +51,12 @@ public class Spike : MonoBehaviour
             defuseText.text = "";
         }
     }
-
-    public IEnumerator DetonateTimer(){
-        yield return new WaitForSeconds(1);
-        SpikeTimer += 1;
-        Debug.Log(SpikeTimer);
-    }
+    
 
     public void explode()
     {
         manager.redScore += 1;
         manager.NewRound();
+        PhotonNetwork.Destroy(this.gameObject);
     }
 }

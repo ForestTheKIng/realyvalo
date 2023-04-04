@@ -2,9 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1aac4ceb-0a5c-4b37-a239-5aac3a980e76" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/UnityServicesProjectConfiguration.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/UnityServicesProjectConfiguration.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/JettContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/JettContainer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/spike.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/spike.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Haven.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Haven.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Launcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Launcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalPlayer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Neon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Neon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlantSpike.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlantSpike.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerListItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerListItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scoreboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Scoreboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScoreboardItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScoreboardItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SingleShotGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SingleShotGun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/spike.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/spike.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,24 +48,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\fdmcp\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\fdmcp\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../Builds for my games/Valo2d/CurrentTestBuild/Valorant 2d.exe" />
@@ -113,7 +133,8 @@
       <workItem from="1680128900722" duration="1267000" />
       <workItem from="1680130622290" duration="6233000" />
       <workItem from="1680488367399" duration="310000" />
-      <workItem from="1680488946916" duration="1971000" />
+      <workItem from="1680488946916" duration="2399000" />
+      <workItem from="1680552651239" duration="5277000" />
     </task>
     <servers />
   </component>
