@@ -82,7 +82,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("room"); 
         roomText.text = PhotonNetwork.CurrentRoom.Name;
         
-        Player[] players = PhotonNetwork.PlayerList;
+        Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
 
         foreach (Transform child in playerListContent){
             Destroy(child.gameObject);
@@ -106,7 +106,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     }
     
-    public override void  OnMasterClientSwitched(Player newMasterClient){
+    public override void  OnMasterClientSwitched(Photon.Realtime.Player newMasterClient){
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 
@@ -147,7 +147,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
     public void Update() {
-        Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
+        Photon.Realtime.Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
 
         if (player.CustomProperties.ContainsKey(TEAM_PROPERTY_KEY))
         {
@@ -167,7 +167,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         int blueTeamCount = 0;
         int redTeamCount = 0;
-        foreach (Player player in PhotonNetwork.PlayerList)
+        foreach (Photon.Realtime.Player player in PhotonNetwork.PlayerList)
         {
             object teamObj;
             if (player.CustomProperties.TryGetValue(TEAM_PROPERTY_KEY, out teamObj))
@@ -183,7 +183,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     
 
 
-    public override void OnPlayerEnteredRoom(Player newPlayer){
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer){
         Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
     }
 

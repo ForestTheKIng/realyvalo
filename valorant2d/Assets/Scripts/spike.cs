@@ -1,29 +1,62 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
+using TMPro;
+using UnityEngine.Serialization;
 
-public class spike : MonoBehaviour
+public class Spike : MonoBehaviourPunCallbacks
 {
-    private int SpikeTimer;
+    private float _spikeTimer = 1000;
+    public bool defusing;
+    public TMP_Text defuseText;
+
+    private GameManager manager;
     // Start is called before the first frame update
-    void Start(){
-        StartCoroutine(DetonateTimer());
+    void Start()
+    {
+        manager = GameObject.Find("ScoreboardCanvas").GetComponent<GameManager>();
     }
 
-    public void Update(){
-        if(SpikeTimer >= 46){
-            explode();
+
+
+    public IEnumerator spikeDefuse()
+    {   
+
+        yield return new WaitForSeconds(4);
+        if(defusing == true)
+        {
+            manager.blueScore += 1;
+            manager.NewRound();
         }
     }
 
-    public IEnumerator DetonateTimer(){
-        yield return new WaitForSeconds(1);
-        SpikeTimer += 1;
-        Debug.Log(SpikeTimer);
-    }
+    public void Update()
+    {
+        _spikeTimer -= 1 * Time.deltaTime;
 
-    public void explode(){
-        // need win con code first
-        Debug.Log("EXPLODED PEW PEW");
+        if (_spikeTimer <= 0)
+        {
+            explode();
+        }
+
+        if (defusing)
+        {
+            defuseText.text = "defusing...";
+        }
+        else if (defusing == false)
+        {
+            defuseText.text = "";
+        }
+    }
+    
+
+    public void explode()
+    {
+        manager.redScore += 1;
+        manager.NewRound();
+        PhotonNetwork.Destroy(this.gameObject);
     }
 }

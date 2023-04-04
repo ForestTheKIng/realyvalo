@@ -43,7 +43,7 @@ public class SingleShotGun : Gun
             if (idamageable != null){
                 idamageable.TakeDamage(((GunInfo)itemInfo).damage);
             }
-            if (hit.collider.gameObject.tag == "Player" && hit.collider.gameObject.GetComponent<Movement>().currentHealth <= 0){
+            if (hit.collider.gameObject.tag == "Player" && hit.collider.gameObject.GetComponent<LocalPlayer>().currentHealth <= 0){
                 playerManager.InstantiateKillFeedMessage(PhotonNetwork.NickName, hit.collider.gameObject.GetComponent<PhotonView>().Owner.NickName);
             }
             pv.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);

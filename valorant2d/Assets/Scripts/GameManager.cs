@@ -8,7 +8,7 @@ using Photon.Pun;
 using Photon.Realtime;
 
 
-public class Timer : MonoBehaviourPunCallbacks
+public class GameManager : MonoBehaviourPunCallbacks
 {
     public TMP_Text timerText;
     const float maxTime = 180f;
@@ -56,10 +56,10 @@ public class Timer : MonoBehaviourPunCallbacks
                 break;
             }
         }
-        Player[] players = PhotonNetwork.PlayerList;
+        Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
 
         // Iterate through each player and check what team they are on
-        foreach (Player player in players)
+        foreach (Photon.Realtime.Player player in players)
         {
             // Get the player's team number from their custom properties
             if (player.CustomProperties.TryGetValue("team", out object teamObj))
@@ -87,13 +87,15 @@ public class Timer : MonoBehaviourPunCallbacks
         deadBlueTeamPlayers = 0;
         deadRedTeamPlayers = 0;
         gameStarted = true;
-        manager.RunRPC();
+        if (manager != null)
+        {
+            manager.RunRPC();
+        }
     }
 
 
     void Update()
     {
-        Debug.Log(deadRedTeamPlayers + " " + deadBlueTeamPlayers);
         redScoreText.text = "Red: " + redScore;
         blueScoreText.text = "Blue: " + blueScore;
 
