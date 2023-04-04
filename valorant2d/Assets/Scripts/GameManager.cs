@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int redScore = 0;
     private PhotonView pv;
     private PlayerManager manager;
+    public Spike spike;
 
     private int team;
 
@@ -116,7 +117,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             NewRound();
         }
 
-        if (gameStarted == true){
+        if (spike != null && spike.SpikePlanted)
+        {
+            currentTime = spike._spikeTimer;
+            var currentTimeInt = (int) Math.Round(currentTime);
+            timerText.text = currentTimeInt.ToString();
+        } else if (gameStarted == true){
             currentTime -= 1 * Time.deltaTime;
             int currentTimeInt = (int) Math.Round(currentTime);
             timerText.text = currentTimeInt.ToString();

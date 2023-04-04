@@ -8,13 +8,14 @@ using System.IO;
 
 public class PlantSpike : MonoBehaviourPunCallbacks
 {
+    public LocalPlayer playerScript;
     public TMP_Text defuText;
     public bool held;
     public bool trigged;
     private PhotonView pv; 
     [System.NonSerialized]
     public GameObject spike;
-
+    
     private Spike _spikeScript;
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other){
@@ -47,7 +48,7 @@ public class PlantSpike : MonoBehaviourPunCallbacks
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(Input.GetKeyDown("e" ) && other.CompareTag("Spike")){
+        if(Input.GetKeyDown("e" ) && other.CompareTag("Spike") && pv.IsMine && playerScript.team == 1){
             _spikeScript.defusing = true;
             Debug.Log("defusing");
             StartCoroutine(_spikeScript.spikeDefuse());
