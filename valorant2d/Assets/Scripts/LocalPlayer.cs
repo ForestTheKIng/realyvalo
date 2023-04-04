@@ -6,7 +6,7 @@ using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine.UI;
 
-public class Movement : MonoBehaviourPunCallbacks, IDamageable
+public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
 {
     private const string _TEAM_PROPERTY_KEY = "team";
     PlayerManager playerManager;
@@ -32,11 +32,11 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
         pv = GetComponent<PhotonView>();    
         playerManager = PhotonView.Find((int)pv.InstantiationData[0]).GetComponent<PlayerManager>();    
     }
-
+    
     void Start(){
         if (pv.IsMine){
             EquipItem(0);
-            Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
+            Photon.Realtime.Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
             if (player.CustomProperties.ContainsKey(_TEAM_PROPERTY_KEY))
             {
                 object teamObj = player.CustomProperties[_TEAM_PROPERTY_KEY];
@@ -70,6 +70,7 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
                 break;
             }
         }
+        
 
         if (pv.IsMine){
             if (Input.GetMouseButtonDown(0)){
@@ -78,6 +79,7 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
         }
 
     }
+    
 
     void EquipItem(int _index){
 
@@ -102,7 +104,7 @@ public class Movement : MonoBehaviourPunCallbacks, IDamageable
         }
     }
 
-    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps){
+    public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps){
         if (changedProps.ContainsKey("itemIndex") && !pv.IsMine && targetPlayer == pv.Owner){
             EquipItem((int)changedProps["itemIndex"]);
         }

@@ -14,9 +14,9 @@ public class ScoreboardItem : MonoBehaviourPunCallbacks
 
     private const string TEAM_PROPERTY_KEY = "team";
 
-    Player player;
+    Photon.Realtime.Player player;
 
-    public void Initialize(Player player){
+    public void Initialize(Photon.Realtime.Player player){
         usernameText.text = player.NickName;
         this.player = player;
 
@@ -36,7 +36,7 @@ public class ScoreboardItem : MonoBehaviourPunCallbacks
         
     }
 
-    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps){
+    public override void OnPlayerPropertiesUpdate(Photon.Realtime.Player targetPlayer, Hashtable changedProps){
         if (targetPlayer == player){
             if (changedProps.ContainsKey("kills") || changedProps.ContainsKey("deaths")){
                 UpdateStats();

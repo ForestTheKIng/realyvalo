@@ -26,14 +26,17 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     [SerializeField] GameObject killFeedItemPrefab;
     [SerializeField] Transform killFeedContent;
-    public Timer manager;
+    public GameManager manager;
 
     private const string TEAM_PROPERTY_KEY = "team";
     private bool spectate = false;
     private GameObject specCam;
     private GameObject mCam;
+    private PlantSpike plantSpikeScript;
+    private Spike spikeScript;
 
-    void Awake() {
+    void Awake()
+    {
         pv = GetComponent<PhotonView>();
         Settings.Instance.SceneChanged();
         
@@ -43,7 +46,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("ScoreboardCanvas").GetComponent<Timer>();
+        manager = GameObject.Find("ScoreboardCanvas").GetComponent<GameManager>();
 
         if (pv.IsMine){
             CreateController();
@@ -59,21 +62,38 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     }
 
     void Update(){
-        if (specCam != null && mCam != null){
-            if (spectate == true){
-                mCam.SetActive(false);
-                specCam.SetActive(true);
-            } else if (spectate == false){
-                mCam.SetActive(true);
-                specCam.SetActive(false);
-            } 
+        if (spikeScript != null)
+        {
+            spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
+            if (pv.IsMine && spikeScript.defusing)
+            {
+                spikeScript.defuseText.text = "defusing...";
+            }
+            else if (spikeScript.defusing == false && pv.IsMine)
+            {
+                spikeScript.defuseText.text = "";
+            }
+
+            if (specCam != null && mCam != null)
+            {
+                if (spectate == true)
+                {
+                    mCam.SetActive(false);
+                    specCam.SetActive(true);
+                }
+                else if (spectate == false)
+                {
+                    mCam.SetActive(true);
+                    specCam.SetActive(false);
+                }
+            }
         }
     }
 
     
     public void CreateController(){
         spectate = false;
-        Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
+        Photon.Realtime.Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
         object teamObj = player.CustomProperties[TEAM_PROPERTY_KEY];
         int team = (int)teamObj;
         Transform spawnpoint = SpawnManager.Instance.GetSpawnPoint(team);
@@ -90,6 +110,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         SpectateCam();  
     }
 
+
     [PunRPC]
     public void RPC_CreateController()
     {
@@ -98,7 +119,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             PhotonNetwork.Destroy(controller);
             controller.SetActive(false);
             spectate = false;
-            Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
+            Photon.Realtime.Player player = PhotonNetwork.LocalPlayer; // or replace with the desired player object
             object teamObj = player.CustomProperties[TEAM_PROPERTY_KEY];
             int team = (int)teamObj;
             Transform spawnpoint = SpawnManager.Instance.GetSpawnPoint(team);
@@ -141,9 +162,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             return;
         }
         Debug.Log("died");
-        if (controller.transform.GetChild(1).GetComponent<Movement>().team == 0){
+        if (controller.transform.GetChild(1).GetComponent<LocalPlayer>().team == 0){
             pv.RPC("RPC_UpdateDeadBluePlayers", RpcTarget.All);
-        } else if (controller.transform.GetChild(1).GetComponent<Movement>().team == 1){
+        } else if (controller.transform.GetChild(1).GetComponent<LocalPlayer>().team == 1){
             pv.RPC("RPC_UpdateDeadRedPlayers", RpcTarget.All);
         }
         PhotonNetwork.Destroy(controller.transform.GetChild(1).gameObject);
@@ -194,7 +215,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
     }
 
-    public static PlayerManager Find(Player player){
+    public static PlayerManager Find(Photon.Realtime.Player player){
         return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x.pv.Owner == player);
     }
 

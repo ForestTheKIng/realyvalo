@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.Serialization;
 
 public class Neon : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Neon : MonoBehaviour
     const float maxEnergy = 100f;
     public float currentEnergy = maxEnergy;
     [SerializeField] Image energyImage;
-    public Movement movement;
+    [FormerlySerializedAs("player")] [FormerlySerializedAs("movement")] public LocalPlayer localPlayer;
     public float NeonModeSpeed = 7.0f;
     public GameObject energyBar;
     PhotonView pv;
@@ -32,7 +33,7 @@ public class Neon : MonoBehaviour
                 if (currentEnergy <= 100){
                     currentEnergy += 2 * Time.deltaTime;
                 }
-                movement.moveSpeed = 5f;
+                localPlayer.moveSpeed = 5f;
                 pp.SetActive(false);
                 outline.SetActive(false);
                 steps.GetComponent<ParticleSystem>().Pause();
@@ -46,7 +47,7 @@ public class Neon : MonoBehaviour
         energyBar.SetActive(true);
         currentEnergy -= 7 * Time.deltaTime;
         if (energyImage != null){
-            movement.moveSpeed = NeonModeSpeed;
+            localPlayer.moveSpeed = NeonModeSpeed;
             pp.SetActive(true);
             steps.SetActive(true);
             steps.GetComponent<ParticleSystem>().Play();
