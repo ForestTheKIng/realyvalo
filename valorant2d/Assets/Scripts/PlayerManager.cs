@@ -7,6 +7,7 @@ using TMPro;
 using Photon.Realtime;
 using System.Linq;
 using ExitGames.Client.Photon.StructWrapping;
+using Mono.Cecil.Cil;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
@@ -32,7 +33,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private bool spectate = false;
     private GameObject specCam;
     private GameObject mCam;
-    private PlantSpike plantSpikeScript;
+    public PlantSpike plantSpikeScript;
     private Spike spikeScript;
 
     void Awake()
@@ -52,6 +53,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             CreateController();
         }
     }
+    
 
 
 
@@ -59,6 +61,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         mCam = controller.transform.GetChild(0).gameObject;
         specCam = controller.transform.GetChild(2).gameObject;
         specCam.transform.position = new Vector3(-87,-5, -20);
+        plantSpikeScript = controller.GetComponentInChildren<PlantSpike>();
     }
 
     void Update(){
@@ -109,11 +112,13 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
         SpectateCam();  
     }
+    
 
 
     [PunRPC]
     public void RPC_CreateController()
     {
+        Debug.Log("creating rpc");
         if (pv.IsMine)
         {
             PhotonNetwork.Destroy(controller);

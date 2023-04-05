@@ -31,8 +31,8 @@ public class Spike : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(4);
         if(defusing == true)
         {
-            manager.blueScore += 1;
-            manager.NewRound();
+            manager.UpdateScore(0);
+            manager.CallNewRoundRPC();
         }
     }
 
@@ -50,7 +50,8 @@ public class Spike : MonoBehaviourPunCallbacks
 
     public void explode()
     {
-        manager.redScore += 1;
+        manager.UpdateScore(1);
+        manager.UpdateTriggers(true);
         manager.NewRound();
         PhotonNetwork.Destroy(this.gameObject);
     }

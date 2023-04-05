@@ -2275,6 +2275,8 @@ MonoBehaviour:
   defuText: {fileID: 5034219133343409497}
   held: 0
   trigged: 0
+  playerPv: {fileID: 0}
+  triggers: {fileID: 0}
 --- !u!96 &6535979888878721046
 TrailRenderer:
   serializedVersion: 2

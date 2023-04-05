@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private PhotonView pv;
     private PlayerManager manager;
     public Spike spike;
+    
 
     private int team;
 
@@ -42,23 +43,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     // Update is called once per frame
     private void Start() {
-        // Find all instances of PlayerManager in the scene
-        PlayerManager[] playerManagers = FindObjectsOfType<PlayerManager>();
-
-        // Loop through each PlayerManager to find the one owned by the local client
-        foreach (PlayerManager playerManager in playerManagers)
-        {
-            if (playerManager.pv.IsMine)
-            {
-                // Set myPlayerManager to the PlayerManager owned by the local client
-                manager = playerManager;
-
-                // Stop searching for PlayerManagers
-                break;
-            }
-        }
         Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
-
         // Iterate through each player and check what team they are on
         foreach (Photon.Realtime.Player player in players)
         {
@@ -82,6 +67,70 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void CallNewRoundRPC()
+    {
+        pv.RPC("RPC_NewRound", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPC_NewRound()
+    {
+        Debug.Log("new round");
+        deadBlueTeamPlayers = 0;
+        deadRedTeamPlayers = 0;
+        // Find all instances of PlayerManager in the scene
+        PlayerManager[] playerManagers = FindObjectsOfType<PlayerManager>();
+
+        // Loop through each PlayerManager to find the one owned by the local client
+        foreach (PlayerManager playerManager in playerManagers)
+        {
+            if (playerManager.pv.IsMine)
+            {
+                // Set myPlayerManager to the PlayerManager owned by the local client
+                manager = playerManager;
+
+                // Stop searching for PlayerManagers
+                break;
+            }
+        }
+
+        gameStarted = true;
+        if (manager != null)
+        {
+            manager.RunRPC();
+        }
+        
+    }
+
+    public void UpdateScore(int rpcTeam)
+    {
+        pv.RPC("RPC_UpdateScore", RpcTarget.All, rpcTeam);
+    }
+    
+    public void UpdateTriggers(bool active)
+    {
+        pv.RPC("RPC_UpdateTriggers", RpcTarget.All, active);
+    }
+
+    [PunRPC]
+    public void RPC_UpdateTriggers(bool active)
+    {
+        if (pv.IsMine){
+            manager.plantSpikeScript.triggers.SetActive(active);
+        }    
+    }
+    
+    [PunRPC]
+    public void RPC_UpdateScore(int rpcTeam)
+    {
+        if (team == 0)
+        {
+            blueScore += 1;
+        } else if (team == 1)
+        {
+            redScore += 1;
+        }
+    }
 
     public void NewRound(){
         Debug.Log("new round");
@@ -117,18 +166,19 @@ public class GameManager : MonoBehaviourPunCallbacks
             NewRound();
         }
 
-        if (spike != null && spike.SpikePlanted)
-        {
-            currentTime = spike._spikeTimer;
-            var currentTimeInt = (int) Math.Round(currentTime);
-            timerText.text = currentTimeInt.ToString();
-        } else if (gameStarted == true){
+
+        if (gameStarted == true){
             currentTime -= 1 * Time.deltaTime;
             int currentTimeInt = (int) Math.Round(currentTime);
             timerText.text = currentTimeInt.ToString();
             if (currentTime <= 0){
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        } else if (spike != null && spike.SpikePlanted)
+        {
+            currentTime = spike._spikeTimer;
+            var currentTimeInt = (int) Math.Round(currentTime);
+            timerText.text = currentTimeInt.ToString();
         } else {
             barriers.SetActive(true);
             startCurrentTime -= 1 * Time.deltaTime;
