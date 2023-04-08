@@ -9,15 +9,18 @@ using UnityEngine.Serialization;
 
 public class Spike : MonoBehaviourPunCallbacks
 {
-    private float _spikeTimer = 1000;
+    public float _spikeTimer = 46;
     public bool defusing;
     public TMP_Text defuseText;
+    public bool SpikePlanted;
 
     private GameManager manager;
     // Start is called before the first frame update
     void Start()
     {
+        SpikePlanted = true;
         manager = GameObject.Find("ScoreboardCanvas").GetComponent<GameManager>();
+        manager.spikeScript = GetComponent<Spike>();
     }
 
 
@@ -28,8 +31,8 @@ public class Spike : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(4);
         if(defusing == true)
         {
-            manager.blueScore += 1;
-            manager.NewRound();
+            manager.UpdateScore(0);
+            manager.CallNewRoundRPC();
         }
     }
 
@@ -41,22 +44,15 @@ public class Spike : MonoBehaviourPunCallbacks
         {
             explode();
         }
-
-        if (defusing)
-        {
-            defuseText.text = "defusing...";
-        }
-        else if (defusing == false)
-        {
-            defuseText.text = "";
-        }
+        
     }
     
 
     public void explode()
     {
-        manager.redScore += 1;
-        manager.NewRound();
+        manager.UpdateScore(1);
+        manager.UpdateTriggers(true);
+        manager.CallNewRoundRPC();
         PhotonNetwork.Destroy(this.gameObject);
     }
 }

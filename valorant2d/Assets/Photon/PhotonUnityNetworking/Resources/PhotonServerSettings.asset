@@ -49,6 +49,12 @@ MonoBehaviour:
   - Fortnite
   - RPC_UpdateDeadBluePlayers
   - RPC_UpdateDeadRedPlayers
+  - RPC_NewRound
+  - RPC_UpdateScore
+  - RPC_UpdateTriggers
+  - RPC_DisableUpdateTriggers
+  - RPC_EnableUpdateTriggers
+  - RPC_UpdateSpike
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
