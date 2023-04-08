@@ -40,6 +40,7 @@ public class PlantSpike : MonoBehaviourPunCallbacks
     {
         Debug.Log("Assigning Vars");
         _spikeScript = _manager.spike.GetComponent<Spike>();
+        Debug.Log(_spikeScript);
         _spikeScript.defuseText = defuText;
     }
 
