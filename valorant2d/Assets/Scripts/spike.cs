@@ -52,7 +52,7 @@ public class Spike : MonoBehaviourPunCallbacks
     {
         manager.UpdateScore(1);
         manager.UpdateTriggers(true);
-        manager.NewRound();
+        manager.CallNewRoundRPC();
         PhotonNetwork.Destroy(this.gameObject);
     }
 }

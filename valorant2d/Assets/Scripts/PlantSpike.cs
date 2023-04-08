@@ -17,11 +17,10 @@ public class PlantSpike : MonoBehaviourPunCallbacks
     public bool trigged;
     public PhotonView pv;
     [System.NonSerialized]
-    public GameObject spike;
     
     private GameManager _manager;
     
-    private Spike _spikeScript;
+    public Spike _spikeScript;
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other){
         trigged = true;
@@ -37,9 +36,10 @@ public class PlantSpike : MonoBehaviourPunCallbacks
         _manager = GameObject.Find("ScoreboardCanvas").GetComponent<GameManager>();
     }
 
-    private void AssignVariables()
+    public void AssignVariables()
     {
-        _spikeScript = spike.GetComponent<Spike>();
+        Debug.Log("Assigning Vars");
+        _spikeScript = _manager.spike.GetComponent<Spike>();
         _spikeScript.defuseText = defuText;
     }
 
@@ -56,7 +56,8 @@ public class PlantSpike : MonoBehaviourPunCallbacks
     private void OnTriggerStay2D(Collider2D other)
     {
         if (_manager.spike != null && Input.GetKey("f") && other.CompareTag("Spike") && pv.IsMine)
-        {
+        {   
+            Debug.Log(_spikeScript);
             _spikeScript.defusing = true;
             Debug.Log("defusing");
             StartCoroutine(_spikeScript.spikeDefuse());
@@ -88,6 +89,7 @@ public class PlantSpike : MonoBehaviourPunCallbacks
             _manager.spike = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Spike"), new Vector3(
                 transform.position.x, transform.position.y,transform.position.z), Quaternion.identity, 0,
                 new object[] {pv.ViewID});
+            _manager.UpdateSpike();
             AssignVariables();
         }
         else if (held == false)

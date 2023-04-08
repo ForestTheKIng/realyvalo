@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4750311563243968107}
   - component: {fileID: 4030456524070377371}
   - component: {fileID: -6774073659907664588}
-  - component: {fileID: 1689816224152293913}
+  - component: {fileID: 2647382775317941876}
   m_Layer: 0
   m_Name: spike
   m_TagString: Spike
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &1689816224152293913
+--- !u!114 &2647382775317941876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

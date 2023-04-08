@@ -69,26 +69,25 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         {
             spikeScript = manager.spikeScript.GetComponent<Spike>();
             if (pv.IsMine && spikeScript.defusing)
-            {
+            { 
                 spikeScript.defuseText.text = "defusing...";
             }
             else if (spikeScript.defusing == false && pv.IsMine)
             {
                 spikeScript.defuseText.text = "";
             }
-
-            if (specCam != null && mCam != null)
+        }
+        if (specCam != null && mCam != null)
+        {
+            if (spectate == true)
             {
-                if (spectate == true)
-                {
-                    mCam.SetActive(false);
-                    specCam.SetActive(true);
-                }
-                else if (spectate == false)
-                {
-                    mCam.SetActive(true);
-                    specCam.SetActive(false);
-                }
+                mCam.SetActive(false);
+                specCam.SetActive(true);
+            }
+            else if (spectate == false)
+            {
+                mCam.SetActive(true);
+                specCam.SetActive(false);
             }
         }
     }
@@ -207,6 +206,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public void RunRPC()
     {
+        Debug.Log("creating controller");
         pv.RPC("RPC_CreateController", RpcTarget.All);
     }
 

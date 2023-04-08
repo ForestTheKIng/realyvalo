@@ -69,19 +69,36 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    // public void UpdateSpike()
-    // {
-    //     
-    // }
-    //
-    // [PunRPC]
-    // public void RPC_UpdateSpike()
-    // {
-    //     if (spike == null)
-    //     {
-    //         spike = GameObject.Find();
-    //     }
-    // }
+    public void UpdateSpike()
+    {
+        pv.RPC("RPC_UpdateSpike",RpcTarget.All);
+    }
+    
+    [PunRPC]
+    public void RPC_UpdateSpike()
+    {
+        if (spike == null)
+        {
+            spike = GameObject.Find("spike(Clone)");
+        }
+        
+        PlayerManager[] playerManagers = FindObjectsOfType<PlayerManager>();
+
+        foreach (PlayerManager playerManager in playerManagers)
+        {
+            if (playerManager.pv.IsMine)
+            {
+                // Set myPlayerManager to the PlayerManager owned by the local client
+                manager = playerManager;
+
+                // Stop searching for PlayerManagers
+                break;
+            }
+        }
+
+        Debug.Log("running var func");
+        manager.plantSpikeScript.AssignVariables();
+    }
 
     public void CallNewRoundRPC()
     {
@@ -134,27 +151,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         triggers = GameObject.Find("triggers");
         triggers.SetActive(active);
     }
-    
+
     [PunRPC]
     public void RPC_UpdateScore(int rpcTeam)
     {
         if (team == 0)
         {
             blueScore += 1;
-        } else if (team == 1)
+        }
+        else if (team == 1)
         {
             redScore += 1;
-        }
-    }
-
-    public void NewRound(){
-        Debug.Log("new round");
-        deadBlueTeamPlayers = 0;
-        deadRedTeamPlayers = 0;
-        gameStarted = true;
-        if (manager != null)
-        {
-            manager.RunRPC();
         }
     }
 
@@ -171,14 +178,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
         if (deadBlueTeamPlayers == blueTeamPlayers) {
-            redScore += 1;
+            UpdateScore(1);
             Debug.Log("no blue players");
-            NewRound();
+            CallNewRoundRPC();
             
         } else if (deadRedTeamPlayers == redTeamPlayers) {
-            blueScore += 1;
+            UpdateScore(0);
             Debug.Log("No red players");
-            NewRound();
+            CallNewRoundRPC();
         }
 
 
