@@ -20,7 +20,7 @@ public class Spike : MonoBehaviourPunCallbacks
     {
         SpikePlanted = true;
         manager = GameObject.Find("ScoreboardCanvas").GetComponent<GameManager>();
-        manager.spike = GetComponent<Spike>();
+        manager.spikeScript = GetComponent<Spike>();
     }
 
 

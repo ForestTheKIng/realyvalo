@@ -67,7 +67,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     void Update(){
         if (spikeScript != null)
         {
-            spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
+            spikeScript = manager.spikeScript.GetComponent<Spike>();
             if (pv.IsMine && spikeScript.defusing)
             {
                 spikeScript.defuseText.text = "defusing...";

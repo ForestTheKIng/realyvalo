@@ -1,18 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1aac4ceb-0a5c-4b37-a239-5aac3a980e76" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Frameworks/UnityPlayer.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Frameworks/libMonoPosixHelper.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Frameworks/libmono-native.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Frameworks/libmonobdwgc-2.0.dylib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MacOS/Valorant 2d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/2.0/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/2.0/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/2.0/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.0/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.0/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.0/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.5/machine.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.5/settings.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/4.5/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/browscap.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/MonoBleedingEdge/etc/mono/mconfig/config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/PlugIns/lib_burst_generated.bundle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Mono.Security.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Newtonsoft.Json.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Photon3Unity3D.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/PhotonChat.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/PhotonRealtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/PhotonUnityNetworking.Utilities.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/PhotonUnityNetworking.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.ComponentModel.Composition.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Configuration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Data.DataSetExtensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Data.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Drawing.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.EnterpriseServices.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.IO.Compression.FileSystem.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.IO.Compression.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Net.Http.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Numerics.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Runtime.Serialization.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Security.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.ServiceModel.Internals.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Transactions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Xml.Linq.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.Xml.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/System.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.2D.Animation.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.2D.Common.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.2D.IK.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.2D.PixelPerfect.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.2D.SpriteShape.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.2D.Tilemap.Extras.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Burst.Cecil.Mdb.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Burst.Cecil.Pdb.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Burst.Cecil.Rocks.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Burst.Cecil.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Burst.Unsafe.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Burst.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.InputSystem.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.InternalAPIEngineBridge.001.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Mathematics.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.RenderPipelines.Core.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Analytics.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Configuration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Device.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Environments.Internal.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Environments.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Internal.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Networking.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Registration.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Scheduler.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Telemetry.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.Threading.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Services.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.Timeline.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.VisualScripting.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.VisualScripting.Flow.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/Unity.VisualScripting.State.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.AIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.ARModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.AccessibilityModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.AndroidJNIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.AnimationModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.AssetBundleModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.AudioModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.ClothModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.ClusterInputModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.ClusterRendererModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.CrashReportingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.DSPGraphModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.DirectorModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.GIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.GameCenterModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.GridModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.HotReloadModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.IMGUIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.InputLegacyModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.InputModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.JSONSerializeModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.LocalizationModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.ParticleSystemModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.PerformanceReportingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.Physics2DModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.PhysicsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.ProfilerModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.ScreenCaptureModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.SharedInternalsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.SpriteMaskModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.SpriteShapeModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.StreamingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.SubstanceModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.SubsystemsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.TLSModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.TerrainModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.TerrainPhysicsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.TilemapModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UI.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UIElementsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UIElementsNativeModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UIModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UNETModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UmbraModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityAnalyticsModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityConnectModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityCurlModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityTestProtocolModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.VFXModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.VRModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.VehiclesModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.VideoModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.VirtualTexturingModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.WindModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.XRModule.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/UnityEngine.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/mscorlib.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/netstandard.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Managed/websocket-sharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/Resources/unity_builtin_extra" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/RuntimeInitializeOnLoads.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/ScriptingAssemblies.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/StreamingAssets/UnityServicesProjectConfiguration.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/app.info" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/boot.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/globalgamemanagers" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/globalgamemanagers.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/globalgamemanagers.assets.resS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/level0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/level1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/resources.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/resources.assets.resS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/sharedassets0.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/sharedassets0.assets.resS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/sharedassets1.assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/Data/sharedassets1.assets.resS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/DefaultPreferences.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/MainMenu.nib/designable.nib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/MainMenu.nib/keyedobjects.nib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/Resources/unity default resources" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/valo 2.0.app/Contents/_CodeSignature/CodeResources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SpawnPoint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SpawnPoint.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/JettContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/JettContainer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/PlayerManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/PlayerManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlantSpike.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlantSpike.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spike.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spike.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/spike.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/spike.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,27 +220,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\fdmcp\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\fdmcp\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../Builds for my games/Valo2d/CurrentTestBuild/Valorant 2d.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/valo 2.0.app/Contents/MacOS/Valorant 2d" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\fdmcp\Documents\Builds for my games\Valo2d\CurrentTestBuild" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -64,9 +252,17 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\fdmcp\Documents\SCForMyGames\valorant2d\realyvalo\valorant2d -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\fdmcp\Documents\SCForMyGames\valorant2d\realyvalo\valorant2d" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath $PROJECT_DIR$ -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
@@ -102,6 +298,7 @@
     <list>
       <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
       <item itemvalue="Attach to Unity Editor.Attach to Unity Editor &amp; Play" />
+      <item itemvalue="Standalone Player.Unit Tests (batch mode)" />
       <item itemvalue="Standalone Player.Standalone Player" />
       <item itemvalue="Standalone Player.Start Unity" />
       <item itemvalue="Standalone Player.UnitTests (batch mode)" />
@@ -124,7 +321,10 @@
       <workItem from="1680488946916" duration="2399000" />
       <workItem from="1680552651239" duration="6253000" />
       <workItem from="1680609440265" duration="706000" />
-      <workItem from="1680639181842" duration="8800000" />
+      <workItem from="1680639181842" duration="9092000" />
+      <workItem from="1680740818014" duration="620000" />
+      <workItem from="1680817209558" duration="1740000" />
+      <workItem from="1680911337452" duration="976000" />
     </task>
     <servers />
   </component>

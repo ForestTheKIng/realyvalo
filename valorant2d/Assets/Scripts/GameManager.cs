@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.Serialization;
 
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -30,9 +31,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int redScore = 0;
     private PhotonView pv;
     private PlayerManager manager;
-    public Spike spike;
+    [FormerlySerializedAs("spike")] public Spike spikeScript;
+    public GameObject spike;
+    public GameObject triggers;
     
-
     private int team;
 
     private void Awake() {
@@ -66,6 +68,20 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
         }
     }
+
+    // public void UpdateSpike()
+    // {
+    //     
+    // }
+    //
+    // [PunRPC]
+    // public void RPC_UpdateSpike()
+    // {
+    //     if (spike == null)
+    //     {
+    //         spike = GameObject.Find();
+    //     }
+    // }
 
     public void CallNewRoundRPC()
     {
@@ -115,9 +131,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RPC_UpdateTriggers(bool active)
     {
-        if (pv.IsMine){
-            manager.plantSpikeScript.triggers.SetActive(active);
-        }    
+        triggers = GameObject.Find("triggers");
+        triggers.SetActive(active);
     }
     
     [PunRPC]
@@ -174,9 +189,9 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (currentTime <= 0){
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
-        } else if (spike != null && spike.SpikePlanted)
+        } else if (spikeScript != null && spikeScript.SpikePlanted)
         {
-            currentTime = spike._spikeTimer;
+            currentTime = spikeScript._spikeTimer;
             var currentTimeInt = (int) Math.Round(currentTime);
             timerText.text = currentTimeInt.ToString();
         } else {

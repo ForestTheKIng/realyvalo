@@ -15,12 +15,10 @@ public class PlantSpike : MonoBehaviourPunCallbacks
     public TMP_Text defuText;
     public bool held;
     public bool trigged;
-    private PhotonView pv;
-    public PhotonView playerPv;
+    public PhotonView pv;
     [System.NonSerialized]
     public GameObject spike;
-    public GameObject triggers;
-
+    
     private GameManager _manager;
     
     private Spike _spikeScript;
@@ -57,25 +55,37 @@ public class PlantSpike : MonoBehaviourPunCallbacks
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (spike != null)
+        if (_manager.spike != null && Input.GetKey("f") && other.CompareTag("Spike") && pv.IsMine)
         {
-            playerPv = other.gameObject.GetComponent<PhotonView>();
-            if (Input.GetKeyDown("f") && other.CompareTag("Spike") && playerPv.IsMine)
-            {
-                _spikeScript.defusing = true;
-                Debug.Log("defusing");
-                StartCoroutine(_spikeScript.spikeDefuse());
-            }
+            _spikeScript.defusing = true;
+            Debug.Log("defusing");
+            StartCoroutine(_spikeScript.spikeDefuse());
+        } else if (Input.GetKeyUp("f"))
+        {
+            Debug.Log("key up");
+        } else if (other.CompareTag("Spike") == false)
+        {
+            Debug.Log("tag wrong");
+        } else if (pv.IsMine == false)
+        {
+            Debug.Log("pv is wrong");
+        }
+        else if (_manager.spike == null)
+        {
+            Debug.Log("Spike is null");
+        }
+        else
+        {
+            Debug.Log("Unknown Error");
         }
     }
     public IEnumerator SpikePlant()
     {
         yield return new WaitForSeconds(4);
-        if(held == true  && spike == null){
+        if(held == true  && _manager.spike == null){
             Debug.Log("planting spike");
-            triggers = GameObject.Find("triggers");
             _manager.UpdateTriggers(false);
-            spike = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Spike"), new Vector3(
+            _manager.spike = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Spike"), new Vector3(
                 transform.position.x, transform.position.y,transform.position.z), Quaternion.identity, 0,
                 new object[] {pv.ViewID});
             AssignVariables();
