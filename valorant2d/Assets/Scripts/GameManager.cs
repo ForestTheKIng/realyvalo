@@ -11,7 +11,7 @@ using Photon.Realtime;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     public TMP_Text timerText;
-    const float maxTime = 180f;
+    const float maxTime = 300f;
     private float currentTime = maxTime;
 
     const float startGameTime = 20f;
@@ -70,13 +70,6 @@ public class GameManager : MonoBehaviourPunCallbacks
                 } else if (team == 1) {
                     redTeamPlayers += 1;
                 }
-                Debug.Log("blue team ammount is: " + blueTeamPlayers + " red team ammount is: " + redTeamPlayers);
-
-            }
-            else
-            {
-                // If the player doesn't have a team assigned, assign them to a default team
-                Debug.Log("Player " + player.NickName + " has no team assigned.");
             }
         }
     }
@@ -110,17 +103,20 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log("no blue players");
             NewRound();
             
-        } else if (deadRedTeamPlayers == redTeamPlayers) {
+        }
+        
+        if (deadRedTeamPlayers == redTeamPlayers) {
             blueScore += 1;
             Debug.Log("No red players");
             NewRound();
         }
 
-        if (gameStarted == true){
+        if (gameStarted){
             currentTime -= 1 * Time.deltaTime;
             int currentTimeInt = (int) Math.Round(currentTime);
             timerText.text = currentTimeInt.ToString();
             if (currentTime <= 0){
+                // Add new round
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         } else {
