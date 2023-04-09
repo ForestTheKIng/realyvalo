@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.Serialization;
 
 
 public class GameManager : MonoBehaviourPunCallbacks
@@ -30,7 +31,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int redScore = 0;
     private PhotonView pv;
     private PlayerManager manager;
-
+    [FormerlySerializedAs("spike")] public Spike spikeScript;
+    public GameObject spike;
+    public GameObject triggers;
+    
     private int team;
 
     private void Awake() {
@@ -41,23 +45,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     // Update is called once per frame
     private void Start() {
-        // Find all instances of PlayerManager in the scene
-        PlayerManager[] playerManagers = FindObjectsOfType<PlayerManager>();
-
-        // Loop through each PlayerManager to find the one owned by the local client
-        foreach (PlayerManager playerManager in playerManagers)
-        {
-            if (playerManager.pv.IsMine)
-            {
-                // Set myPlayerManager to the PlayerManager owned by the local client
-                manager = playerManager;
-
-                // Stop searching for PlayerManagers
-                break;
-            }
-        }
         Photon.Realtime.Player[] players = PhotonNetwork.PlayerList;
-
         // Iterate through each player and check what team they are on
         foreach (Photon.Realtime.Player player in players)
         {
@@ -74,15 +62,99 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void UpdateSpike()
+    {
+        pv.RPC("RPC_UpdateSpike",RpcTarget.All);
+    }
+    
+    [PunRPC]
+    public void RPC_UpdateSpike()
+    {
+        if (spike == null)
+        {
+            spike = GameObject.Find("spike(Clone)");
+        }
+        
+        PlayerManager[] playerManagers = FindObjectsOfType<PlayerManager>();
 
-    public void NewRound(){
+        foreach (PlayerManager playerManager in playerManagers)
+        {
+            if (playerManager.pv.IsMine)
+            {
+                // Set myPlayerManager to the PlayerManager owned by the local client
+                manager = playerManager;
+
+                // Stop searching for PlayerManagers
+                break;
+            }
+        }
+
+        Debug.Log("running var func");
+        manager.plantSpikeScript.AssignVariables();
+    }
+
+    public void CallNewRoundRPC()
+    {
+        pv.RPC("RPC_NewRound", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPC_NewRound()
+    {
         Debug.Log("new round");
         deadBlueTeamPlayers = 0;
         deadRedTeamPlayers = 0;
+        // Find all instances of PlayerManager in the scene
+        PlayerManager[] playerManagers = FindObjectsOfType<PlayerManager>();
+
+        // Loop through each PlayerManager to find the one owned by the local client
+        foreach (PlayerManager playerManager in playerManagers)
+        {
+            if (playerManager.pv.IsMine)
+            {
+                // Set myPlayerManager to the PlayerManager owned by the local client
+                manager = playerManager;
+
+                // Stop searching for PlayerManagers
+                break;
+            }
+        }
+
         gameStarted = true;
         if (manager != null)
         {
             manager.RunRPC();
+        }
+        
+    }
+
+    public void UpdateScore(int rpcTeam)
+    {
+        pv.RPC("RPC_UpdateScore", RpcTarget.All, rpcTeam);
+    }
+    
+    public void UpdateTriggers(bool active)
+    {
+        pv.RPC("RPC_UpdateTriggers", RpcTarget.All, active);
+    }
+
+    [PunRPC]
+    public void RPC_UpdateTriggers(bool active)
+    {
+        triggers = GameObject.Find("triggers");
+        triggers.SetActive(active);
+    }
+
+    [PunRPC]
+    public void RPC_UpdateScore(int rpcTeam)
+    {
+        if (team == 0)
+        {
+            blueScore += 1;
+        }
+        else if (team == 1)
+        {
+            redScore += 1;
         }
     }
 
@@ -99,16 +171,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
         if (deadBlueTeamPlayers == blueTeamPlayers) {
-            redScore += 1;
+            UpdateScore(1);
             Debug.Log("no blue players");
-            NewRound();
+            CallNewRoundRPC();
             
         }
         
         if (deadRedTeamPlayers == redTeamPlayers) {
             blueScore += 1;
             Debug.Log("No red players");
-            NewRound();
+            CallNewRoundRPC();
         }
 
         if (gameStarted){
@@ -119,6 +191,11 @@ public class GameManager : MonoBehaviourPunCallbacks
                 // Add new round
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        } else if (spikeScript != null && spikeScript.SpikePlanted)
+        {
+            currentTime = spikeScript._spikeTimer;
+            var currentTimeInt = (int) Math.Round(currentTime);
+            timerText.text = currentTimeInt.ToString();
         } else {
             barriers.SetActive(true);
             startCurrentTime -= 1 * Time.deltaTime;

@@ -74,3 +74,4 @@ MonoBehaviour:
   killFeedItemPrefab: {fileID: 0}
   killFeedContent: {fileID: 0}
   manager: {fileID: 0}
+  plantSpikeScript: {fileID: 0}

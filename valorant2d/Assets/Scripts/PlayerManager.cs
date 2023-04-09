@@ -7,6 +7,7 @@ using TMPro;
 using Photon.Realtime;
 using System.Linq;
 using ExitGames.Client.Photon.StructWrapping;
+using Mono.Cecil.Cil;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
@@ -32,7 +33,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private bool spectate = false;
     private GameObject specCam;
     private GameObject mCam;
-    private PlantSpike plantSpikeScript;
+    public PlantSpike plantSpikeScript;
     private Spike spikeScript;
 
     void Awake()
@@ -52,6 +53,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             CreateController();
         }
     }
+    
 
 
 
@@ -59,33 +61,33 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         mCam = controller.transform.GetChild(0).gameObject;
         specCam = controller.transform.GetChild(2).gameObject;
         specCam.transform.position = new Vector3(-87,-5, -20);
+        plantSpikeScript = controller.GetComponentInChildren<PlantSpike>();
     }
 
     void Update(){
         if (spikeScript != null)
         {
-            spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
+            spikeScript = manager.spikeScript.GetComponent<Spike>();
             if (pv.IsMine && spikeScript.defusing)
-            {
+            { 
                 spikeScript.defuseText.text = "defusing...";
             }
             else if (spikeScript.defusing == false && pv.IsMine)
             {
                 spikeScript.defuseText.text = "";
             }
-
-            if (specCam != null && mCam != null)
+        }
+        if (specCam != null && mCam != null)
+        {
+            if (spectate == true)
             {
-                if (spectate == true)
-                {
-                    mCam.SetActive(false);
-                    specCam.SetActive(true);
-                }
-                else if (spectate == false)
-                {
-                    mCam.SetActive(true);
-                    specCam.SetActive(false);
-                }
+                mCam.SetActive(false);
+                specCam.SetActive(true);
+            }
+            else if (spectate == false)
+            {
+                mCam.SetActive(true);
+                specCam.SetActive(false);
             }
         }
     }
@@ -109,11 +111,13 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
         SpectateCam();  
     }
+    
 
 
     [PunRPC]
     public void RPC_CreateController()
     {
+        Debug.Log("creating rpc");
         if (pv.IsMine)
         {
             PhotonNetwork.Destroy(controller);
@@ -202,6 +206,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     public void RunRPC()
     {
+        Debug.Log("creating controller");
         pv.RPC("RPC_CreateController", RpcTarget.All);
     }
 
