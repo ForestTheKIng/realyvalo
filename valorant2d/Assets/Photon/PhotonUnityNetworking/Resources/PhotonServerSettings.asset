@@ -53,6 +53,7 @@ MonoBehaviour:
   - RPC_NewRound
   - RPC_UpdateTriggers
   - RPC_UpdateScore
+  - RPC_ResetScore
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

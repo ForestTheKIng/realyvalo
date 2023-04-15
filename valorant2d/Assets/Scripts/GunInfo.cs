@@ -8,4 +8,5 @@ public class GunInfo : ItemInfo
     public float damage;
     public float _speed;
     public float _weaponRange;
+    public float fireRate;
 }

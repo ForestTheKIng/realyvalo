@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun; 
 using System.IO;
+using Unity.VisualScripting;
 
 public class SingleShotGun : Gun
 {
@@ -12,6 +13,7 @@ public class SingleShotGun : Gun
     [SerializeField] private GameObject _bulletTrail;
 
     PlayerManager playerManager;
+    private bool _onCooldown;
 
 
     PhotonView pv;
@@ -22,10 +24,22 @@ public class SingleShotGun : Gun
     }
 
     public override void Use(){
-        Shoot();
+        if (!_onCooldown)
+        {
+            Shoot();
+        }
     }
 
-    void Shoot(){
+    private IEnumerator ShootCooldown()
+    {
+        _onCooldown = true;
+        yield return new WaitForSeconds(((GunInfo)itemInfo).fireRate);
+        _onCooldown = false;
+    }
+
+    void Shoot()
+    {
+        StartCoroutine(ShootCooldown());
         _muzzleFlashAnimator.SetTrigger("Shoot");
 
         var hit = Physics2D.Raycast(_gunPoint.position, transform.up, (((GunInfo)itemInfo)._weaponRange));
