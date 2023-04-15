@@ -11,7 +11,7 @@ using Photon.Realtime;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     public TMP_Text timerText;
-    const float maxTime = 180f;
+    const float maxTime = 300f;
     private float currentTime = maxTime;
 
     const float startGameTime = 20f;
@@ -84,6 +84,24 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void UpdateScore(int teamNum)
+    {
+        pv.RPC("RPC_UpdateScore", RpcTarget.All, teamNum);
+    }
+
+    [PunRPC]
+    public void RPC_UpdateScore(int teamNum)
+    {
+        if (teamNum == 0)
+        {
+            blueScore += 1;
+        }
+        else
+        {
+            redScore += 1;
+        }
+    }
+
     public void NewRound()
     {
         pv.RPC("RPC_NewRound", RpcTarget.All);
@@ -94,6 +112,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log("new round");
         deadBlueTeamPlayers = 0;
         deadRedTeamPlayers = 0;
+        currentTime = maxTime;
+        startCurrentTime = startGameTime;
         gameStarted = false;
         pv.RPC("RPC_DestroySpike", RpcTarget.All);
         pv.RPC("RPC_UpdateTriggers", RpcTarget.All, true);
@@ -101,6 +121,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             _pm.RunRPC();
         }
+    }
+
+    [PunRPC]
+    void RPC_ResetScore()
+    {
+        blueScore = 0;
+        redScore = 0;
     }
 
     [PunRPC]
@@ -129,23 +156,23 @@ public class GameManager : MonoBehaviourPunCallbacks
         
 
         if (redScore == 13){
-            Debug.Log("red won");
+            pv.RPC("RPC_ResetScore", RpcTarget.All);
         } else if (blueScore == 13){
-            Debug.Log("blue won");
+            pv.RPC("RPC_ResetScore", RpcTarget.All);
         }
 
         if (deadBlueTeamPlayers == blueTeamPlayers) {
-            redScore += 1;
+            UpdateScore(1);
             Debug.Log("no blue players");
             NewRound();
             
         } else if (deadRedTeamPlayers == redTeamPlayers) {
-            blueScore += 1;
+            UpdateScore(0);
             Debug.Log("No red players");
             NewRound();
         }
 
-        if (gameStarted == true){
+        if (gameStarted){
             currentTime -= 1 * Time.deltaTime;
             int currentTimeInt = (int) Math.Round(currentTime);
             timerText.text = currentTimeInt.ToString();

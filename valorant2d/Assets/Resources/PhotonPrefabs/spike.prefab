@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6774073659907664588}
   - component: {fileID: 1689816224152293913}
   m_Layer: 0
-  m_Name: Spike
+  m_Name: spike
   m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,5 +165,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7266a7cdbaf328c479c8ca87c89788e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defusing: 0
-  defuseText: {fileID: 0}

@@ -58,7 +58,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     {   
 
         yield return new WaitForSeconds(4);
-        manager.blueScore += 1;
+        manager.UpdateScore(0);
         manager.NewRound();
     }
 
