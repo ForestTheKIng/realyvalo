@@ -71,6 +71,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   killFeedItem: {fileID: 0}
   roundNumber: 0
+  planted: 0
   killFeedItemPrefab: {fileID: 0}
   killFeedContent: {fileID: 0}
   manager: {fileID: 0}

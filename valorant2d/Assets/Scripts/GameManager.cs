@@ -29,7 +29,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int blueScore = 0;
     public int redScore = 0;
     private PhotonView pv;
-    private PlayerManager manager;
+    private PlayerManager _pm;
+    public GameObject triggers;
+    public GameObject spike;
+
 
     private int team;
 
@@ -50,7 +53,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (playerManager.pv.IsMine)
             {
                 // Set myPlayerManager to the PlayerManager owned by the local client
-                manager = playerManager;
+                _pm = playerManager;
 
                 // Stop searching for PlayerManagers
                 break;
@@ -81,16 +84,41 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-
-    public void NewRound(){
+    public void NewRound()
+    {
+        pv.RPC("RPC_NewRound", RpcTarget.All);
+    }
+    [PunRPC]
+    public void RPC_NewRound(){
+        spike = GameObject.Find("spike(Clone)");
         Debug.Log("new round");
         deadBlueTeamPlayers = 0;
         deadRedTeamPlayers = 0;
-        gameStarted = true;
-        if (manager != null)
+        gameStarted = false;
+        pv.RPC("RPC_DestroySpike", RpcTarget.All);
+        pv.RPC("RPC_UpdateTriggers", RpcTarget.All, true);
+        if (_pm != null)
         {
-            manager.RunRPC();
+            _pm.RunRPC();
         }
+    }
+
+    [PunRPC]
+    void RPC_DestroySpike()
+    {
+        Destroy(spike);
+    }
+
+    [PunRPC]
+    void RPC_UpdateTriggers(bool active)
+    {
+        triggers.SetActive(active);
+    }
+
+    public void UpdateTriggers(bool active)
+    {
+        Debug.Log("gm update trig");
+        pv.RPC("RPC_UpdateTriggers", RpcTarget.All, active);
     }
 
 
@@ -98,6 +126,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         redScoreText.text = "Red: " + redScore;
         blueScoreText.text = "Blue: " + blueScore;
+        
 
         if (redScore == 13){
             Debug.Log("red won");

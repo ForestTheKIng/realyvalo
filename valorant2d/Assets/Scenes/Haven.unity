@@ -26063,6 +26063,8 @@ MonoBehaviour:
   redScoreText: {fileID: 0}
   blueScore: 0
   redScore: 0
+  triggers: {fileID: 808749747}
+  spike: {fileID: 0}
 --- !u!114 &1513065976
 MonoBehaviour:
   m_ObjectHideFlags: 0

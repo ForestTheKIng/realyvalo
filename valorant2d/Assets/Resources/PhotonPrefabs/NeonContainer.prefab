@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Defusing...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2162,6 +2162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7f596d62d033a48bcc991aa1121dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
   moveSpeed: 5
   healthbarImage: {fileID: 7012490089932445684}
   ui: {fileID: 2910543211744047721}
@@ -2272,9 +2273,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec5599eb42ffee438d707d7356aa6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defuText: {fileID: 5034219133343409497}
   held: 0
   trigged: 0
+  defusing: 0
+  pm: {fileID: 0}
+  lp: {fileID: 0}
+  _defuseText: {fileID: 5034219133343409497}
+  spikeScript: {fileID: 0}
 --- !u!96 &6535979888878721046
 TrailRenderer:
   serializedVersion: 2

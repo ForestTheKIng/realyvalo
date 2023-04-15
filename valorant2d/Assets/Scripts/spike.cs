@@ -10,8 +10,6 @@ using UnityEngine.Serialization;
 public class Spike : MonoBehaviourPunCallbacks
 {
     private float _spikeTimer = 1000;
-    public bool defusing;
-    public TMP_Text defuseText;
 
     private GameManager manager;
     // Start is called before the first frame update
@@ -20,18 +18,7 @@ public class Spike : MonoBehaviourPunCallbacks
         manager = GameObject.Find("ScoreboardCanvas").GetComponent<GameManager>();
     }
 
-
-
-    public IEnumerator spikeDefuse()
-    {   
-
-        yield return new WaitForSeconds(4);
-        if(defusing == true)
-        {
-            manager.blueScore += 1;
-            manager.NewRound();
-        }
-    }
+    
 
     public void Update()
     {
@@ -41,22 +28,13 @@ public class Spike : MonoBehaviourPunCallbacks
         {
             explode();
         }
-
-        if (defusing)
-        {
-            defuseText.text = "defusing...";
-        }
-        else if (defusing == false)
-        {
-            defuseText.text = "";
-        }
     }
     
 
     public void explode()
     {
         manager.redScore += 1;
-        manager.NewRound();
+        manager.NewRound(); 
         PhotonNetwork.Destroy(this.gameObject);
     }
 }

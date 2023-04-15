@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
 {
     private const string _TEAM_PROPERTY_KEY = "team";
-    PlayerManager playerManager;
+    public PlayerManager playerManager;
     public float moveSpeed = 5f;
     [SerializeField] Image healthbarImage;
     [SerializeField] GameObject ui;

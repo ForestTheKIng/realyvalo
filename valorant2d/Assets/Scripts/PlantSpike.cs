@@ -5,62 +5,87 @@ using UnityEngine;
 using Photon.Pun;
 using TMPro;
 using System.IO;
+using ExitGames.Client.Photon.StructWrapping;
+using Photon.Realtime;
+using UnityEngine.Serialization;
 
 public class PlantSpike : MonoBehaviourPunCallbacks
 {
-    public TMP_Text defuText;
     public bool held;
     public bool trigged;
     private PhotonView pv; 
     [System.NonSerialized]
     public GameObject spike;
+    public bool defusing;
+    public PlayerManager pm;
+    public LocalPlayer lp;
 
-    private Spike _spikeScript;
+    public TMP_Text _defuseText;
+
+    [FormerlySerializedAs("_spikeScript")] public Spike spikeScript;
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other){
         trigged = true;
     }
     void OnTriggerExit2D(Collider2D other){
         trigged = false;
-    }
+    } 
 
     private void Start()
     {
+        lp = GetComponent<LocalPlayer>();
+        pm = lp.playerManager;
         pv = GetComponent<PhotonView>();
     }
+    
 
-    private void AssignVariables()
-    {
-        _spikeScript = spike.GetComponent<Spike>();
-        _spikeScript.defuseText = defuText;
-    }
 
     void Update() {
+        if (pv.IsMine)
+        {
+            if (defusing)
+            {
+                _defuseText.enabled = true;
+            }
+            else
+            {
+                _defuseText.enabled = false;
+            }
+        }
+
         if (trigged == true){
-            
             if(Input.GetKeyDown("e")){
                 held = true;
                 StartCoroutine(SpikePlant());
             }
         }
+        
     }
     
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(Input.GetKeyDown("e" ) && other.CompareTag("Spike")){
-            _spikeScript.defusing = true;
+        if(Input.GetKey("f" ) && other.CompareTag("Spike") && pv.IsMine)
+        {
             Debug.Log("defusing");
-            StartCoroutine(_spikeScript.spikeDefuse());
+            defusing = true;
+            StartCoroutine(pm.spikeDefuse());
+        }
+        else
+        {
+            Debug.Log("not defusing");
+            defusing = false;
         }
     }
     public IEnumerator SpikePlant()
     {
         yield return new WaitForSeconds(4);
-        if(held == true  && spike == null){
+        if(held == true  && !pm.planted){
             spike = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Spike"), new Vector3(
                 transform.position.x, transform.position.y,transform.position.z), Quaternion.identity, 0,
                 new object[] {pv.ViewID});
-            AssignVariables();
+            pm.planted = true;
+            pm.UpdateTriggers(false);
+
         }
     }
 }

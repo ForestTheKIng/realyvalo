@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public GameObject killFeedItem;
 
     public int roundNumber;
+    public bool planted;
 
     [SerializeField] GameObject killFeedItemPrefab;
     [SerializeField] Transform killFeedContent;
@@ -53,7 +54,13 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public IEnumerator spikeDefuse()
+    {   
 
+        yield return new WaitForSeconds(4);
+        manager.blueScore += 1;
+        manager.NewRound();
+    }
 
     void SpectateCam() {
         mCam = controller.transform.GetChild(0).gameObject;
@@ -64,16 +71,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     void Update(){
         if (spikeScript != null)
         {
-            spikeScript = plantSpikeScript.spike.GetComponent<Spike>();
-            if (pv.IsMine && spikeScript.defusing)
-            {
-                spikeScript.defuseText.text = "defusing...";
-            }
-            else if (spikeScript.defusing == false && pv.IsMine)
-            {
-                spikeScript.defuseText.text = "";
-            }
-
             if (specCam != null && mCam != null)
             {
                 if (spectate == true)
@@ -88,6 +85,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+
+    public void UpdateTriggers(bool active)
+    {
+        Debug.Log("pm update trig");
+        manager.UpdateTriggers(active);
     }
 
     
