@@ -24,13 +24,14 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
     Vector2 mousePos;
     PhotonView pv;
     public Jett jett;
-    [SerializeField] Item[] items;
-    int itemIndex;
+    public Item[] items;
+    public int itemIndex;
     int previousItemIndex = -1;
     const float maxHealth = 100f;
     public float currentHealth = maxHealth;
     public int team;
     public TMP_Text ammoText;
+    public TMP_Text reloadText;
 
 
     void Awake() 
@@ -61,6 +62,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
     // Update is called once per frame
     void Update()
     {
+        
         if(pv.IsMine)
         {
             movement.x = Input.GetAxisRaw("Horizontal");

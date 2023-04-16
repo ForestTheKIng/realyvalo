@@ -16,18 +16,15 @@ public class SingleShotGun : Gun
     PlayerManager playerManager;
     private bool _onCooldown;
     private LocalPlayer _myLp;
+    private bool _reloading;
 
     PhotonView pv;
 
     void Awake()
     {
-        ((GunInfo)itemInfo).maxAmmo = ((GunInfo)itemInfo).ammo;
+
         pv = GetComponent<PhotonView>();    
         playerManager = PhotonView.Find((int)pv.InstantiationData[0]).GetComponent<PlayerManager>();    
-    }
-
-    private void Update()
-    {
         LocalPlayer[] localPlayers = FindObjectsOfType<LocalPlayer>();
         foreach (LocalPlayer localPlayer in localPlayers)
         {
@@ -37,10 +34,13 @@ public class SingleShotGun : Gun
                 break;
             }
         }
+    }
 
+    private void Update()
+    {
         if (pv.IsMine)
         {
-            _myLp.ammoText.text = ((GunInfo)itemInfo).ammo.ToString() + "/" + ((GunInfo)itemInfo).maxAmmo.ToString();
+            _myLp.ammoText.text = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo.ToString() + "/" + ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).maxAmmo.ToString();
         }
     }
 
@@ -50,7 +50,7 @@ public class SingleShotGun : Gun
     }
 
     public override void Use(){
-        if (!_onCooldown && ((GunInfo)itemInfo).ammo >= 0) 
+        if (!_onCooldown && ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo >= 0 && !_reloading) 
         {
             Shoot();
         }
@@ -58,8 +58,13 @@ public class SingleShotGun : Gun
 
     private IEnumerator ReloadCooldown()
     {
+        _reloading = true;
+        _myLp.reloadText.enabled = true;
         yield return new WaitForSeconds(((GunInfo)itemInfo).reloadSpeed);
-        ((GunInfo)itemInfo).ammo = ((GunInfo)itemInfo).maxAmmo;
+        ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo = ((GunInfo)itemInfo).maxAmmo;
+        _myLp.reloadText.enabled = false;
+        _reloading = false;
+
     }
 
     private IEnumerator ShootCooldown()
@@ -71,7 +76,8 @@ public class SingleShotGun : Gun
 
     void Shoot()
     {
-        ((GunInfo)itemInfo).ammo -= 1;
+        ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo -= 1;
+        Debug.Log("ammo updated" + (GunInfo)itemInfo);
         StartCoroutine(ShootCooldown());
         _muzzleFlashAnimator.SetTrigger("Shoot");
 
@@ -86,9 +92,6 @@ public class SingleShotGun : Gun
         if (hit.collider != null){
             IDamageable idamageable = hit.collider.gameObject.GetComponent<IDamageable>();
             LocalPlayer lp = hit.collider.gameObject.GetComponent<LocalPlayer>();
-
-
-        
             trailScript.SetTargetPosition(hit.point);
             if (idamageable != null)
             {

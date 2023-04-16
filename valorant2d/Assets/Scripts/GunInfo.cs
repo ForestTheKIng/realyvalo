@@ -9,7 +9,7 @@ public class GunInfo : ItemInfo
     public float damage;
     public float weaponRange;
     public float fireRate;
-    public float maxAmmo;
-    public float ammo;
+    public int maxAmmo;
+    public int ammo;
     public float reloadSpeed;
 }
