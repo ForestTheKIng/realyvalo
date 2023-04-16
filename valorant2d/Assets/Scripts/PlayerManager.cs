@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public PhotonView pv;
 
     public GameObject controller;
+    public LocalPlayer lp;
 
     int kills;
     int deaths;
@@ -52,6 +53,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         if (pv.IsMine){
             CreateController();
         }
+        
+
     }
 
     public IEnumerator spikeDefuse()
@@ -110,6 +113,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 Debug.LogError("Erorr: No team assigned");
             }
         }
+        lp = controller.GetComponentInChildren<LocalPlayer>();
         SpectateCam();  
     }
 
@@ -143,7 +147,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                     Debug.LogError("Erorr: No team assigned");
                 }
             }
-    
+            lp = controller.GetComponentInChildren<LocalPlayer>();
             SpectateCam();
         }
     }

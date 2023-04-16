@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Spectre
   m_EditorClassIdentifier: 
   itemName: Spectre
-  damage: 5
+  damage: 30
   _speed: 0
   _weaponRange: 50
+  fireRate: 0.3

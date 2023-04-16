@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using Photon.Pun;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine.UI;
+using System.IO;
+using System.Linq;
+using Unity.Mathematics;
 
 public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
 {
@@ -51,6 +55,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
     }
 
 
+
     // Update is called once per frame
     void Update()
     {
@@ -59,7 +64,6 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
-
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         }
 
@@ -152,7 +156,8 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
 
     }
 
-    void Die(){
+    void Die()
+    {
         playerManager.Die();
     }
 }

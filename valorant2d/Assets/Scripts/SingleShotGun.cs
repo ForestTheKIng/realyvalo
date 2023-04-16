@@ -14,7 +14,7 @@ public class SingleShotGun : Gun
 
     PlayerManager playerManager;
     private bool _onCooldown;
-
+    private LocalPlayer _myLp;
 
     PhotonView pv;
 
@@ -52,10 +52,25 @@ public class SingleShotGun : Gun
 
         if (hit.collider != null){
             IDamageable idamageable = hit.collider.gameObject.GetComponent<IDamageable>();
+            LocalPlayer lp = hit.collider.gameObject.GetComponent<LocalPlayer>();
 
+            LocalPlayer[] localPlayers = FindObjectsOfType<LocalPlayer>();
+            foreach (LocalPlayer localPlayer in localPlayers)
+            {
+                if (pv.IsMine)
+                {
+                    _myLp = localPlayer;
+                    break;
+                }
+            }
+        
             trailScript.SetTargetPosition(hit.point);
-            if (idamageable != null){
-                idamageable.TakeDamage(((GunInfo)itemInfo).damage);
+            if (idamageable != null)
+            {
+                if (_myLp.team != lp.team)
+                {
+                    idamageable.TakeDamage(((GunInfo)itemInfo).damage);
+                }
             }
             if (hit.collider.gameObject.tag == "Player" && hit.collider.gameObject.GetComponent<LocalPlayer>().currentHealth <= 0){
                 playerManager.InstantiateKillFeedMessage(PhotonNetwork.NickName, hit.collider.gameObject.GetComponent<PhotonView>().Owner.NickName);

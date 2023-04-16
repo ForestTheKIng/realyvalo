@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pv: {fileID: 0}
   controller: {fileID: 0}
+  lp: {fileID: 0}
   killFeedItem: {fileID: 0}
   roundNumber: 0
   planted: 0

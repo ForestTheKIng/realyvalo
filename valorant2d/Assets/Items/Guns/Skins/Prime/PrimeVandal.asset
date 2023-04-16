@@ -16,3 +16,4 @@ MonoBehaviour:
   damage: 40
   _speed: 0
   _weaponRange: 100
+  fireRate: 0.5
