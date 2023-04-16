@@ -50,7 +50,7 @@ public class SingleShotGun : Gun
     }
 
     public override void Use(){
-        if (!_onCooldown && ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo >= 0 && !_reloading) 
+        if (!_onCooldown && ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo > 0 && !_reloading) 
         {
             Shoot();
         }
@@ -90,15 +90,19 @@ public class SingleShotGun : Gun
         var trailScript = trail.GetComponent<BulletTrail>();
 
         if (hit.collider != null){
+            Debug.Log("hit");
             IDamageable idamageable = hit.collider.gameObject.GetComponent<IDamageable>();
             LocalPlayer lp = hit.collider.gameObject.GetComponent<LocalPlayer>();
             trailScript.SetTargetPosition(hit.point);
             if (idamageable != null)
             {
-                if (_myLp.team != lp.team)
-                {
-                    idamageable.TakeDamage(((GunInfo)itemInfo).damage);
-                }
+                // Debug.Log("idamageable not null");
+                // Debug.Log("my LP: " + _myLp + _myLp.team + "Hit lp: " + lp.team + lp);
+                // if (_myLp.team != lp.team)
+                // {
+                        // Debug.Log("not same team dealing damage");
+                idamageable.TakeDamage(((GunInfo)itemInfo).damage);
+                // }
             }
             if (hit.collider.gameObject.tag == "Player" && hit.collider.gameObject.GetComponent<LocalPlayer>().currentHealth <= 0){
                 playerManager.InstantiateKillFeedMessage(PhotonNetwork.NickName, hit.collider.gameObject.GetComponent<PhotonView>().Owner.NickName);

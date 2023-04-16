@@ -158,8 +158,9 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
         }
 
         if (currentHealth <= 0){
+            Debug.Log("dead");
             Die();
-            PlayerManager.Find(info.Sender).GetKill();
+            PlayerManager.Find(info.Sender).GetKill(); 
         }
 
     }
