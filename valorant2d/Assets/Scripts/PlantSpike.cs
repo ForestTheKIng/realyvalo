@@ -15,7 +15,6 @@ public class PlantSpike : MonoBehaviourPunCallbacks
     public bool trigged;
     private PhotonView pv; 
     [System.NonSerialized]
-    public GameObject spike;
     public bool defusing;
     public PlayerManager pm;
     public LocalPlayer lp;
@@ -50,15 +49,18 @@ public class PlantSpike : MonoBehaviourPunCallbacks
             {
                 _defuseText.enabled = false;
             }
-        }
 
-        if (trigged == true){
-            if(Input.GetKeyDown("e")){
-                held = true;
-                StartCoroutine(SpikePlant());
+
+            if (trigged == true)
+            {
+                if (Input.GetKeyDown("e"))
+                {
+                    held = true;
+                    StartCoroutine(SpikePlant());
+                }
             }
         }
-        
+
     }
     
     private void OnTriggerStay2D(Collider2D other)
@@ -79,7 +81,7 @@ public class PlantSpike : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(4);
         if(held == true  && !pm.planted){
-            spike = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Spike"), new Vector3(
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Spike"), new Vector3(
                 transform.position.x, transform.position.y,transform.position.z), Quaternion.identity, 0,
                 new object[] {pv.ViewID});
             pm.planted = true;

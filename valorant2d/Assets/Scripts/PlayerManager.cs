@@ -114,9 +114,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 Debug.LogError("Erorr: No team assigned");
             }
         }
-
-        // PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "MinimapIcon"), transform.position,
-        //     quaternion.identity);
+        
         lp = controller.GetComponentInChildren<LocalPlayer>();
         SpectateCam();  
     }
