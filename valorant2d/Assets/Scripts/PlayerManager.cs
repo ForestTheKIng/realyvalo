@@ -7,6 +7,7 @@ using TMPro;
 using Photon.Realtime;
 using System.Linq;
 using ExitGames.Client.Photon.StructWrapping;
+using Unity.Mathematics;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
@@ -113,6 +114,9 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 Debug.LogError("Erorr: No team assigned");
             }
         }
+
+        // PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "MinimapIcon"), transform.position,
+        //     quaternion.identity);
         lp = controller.GetComponentInChildren<LocalPlayer>();
         SpectateCam();  
     }
