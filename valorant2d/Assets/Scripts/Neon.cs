@@ -33,7 +33,7 @@ public class Neon : MonoBehaviour
                 if (currentEnergy <= 100){
                     currentEnergy += 2 * Time.deltaTime;
                 }
-                localPlayer.moveSpeed = 5f;
+                localPlayer.MoveSpeed = 5f;
                 pp.SetActive(false);
                 outline.SetActive(false);
                 steps.GetComponent<ParticleSystem>().Pause();
@@ -47,7 +47,7 @@ public class Neon : MonoBehaviour
         energyBar.SetActive(true);
         currentEnergy -= 7 * Time.deltaTime;
         if (energyImage != null){
-            localPlayer.moveSpeed = NeonModeSpeed;
+            localPlayer.MoveSpeed = NeonModeSpeed;
             pp.SetActive(true);
             steps.SetActive(true);
             steps.GetComponent<ParticleSystem>().Play();

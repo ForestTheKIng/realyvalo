@@ -12,6 +12,8 @@ public class SingleShotGun : Gun
     [SerializeField] private Transform _gunPoint;
     [SerializeField] private Animator _muzzleFlashAnimator;
     [SerializeField] private GameObject _bulletTrail;
+    public LayerMask ignoreBullet;
+
 
     PlayerManager playerManager;
     private bool _onCooldown;
@@ -40,6 +42,7 @@ public class SingleShotGun : Gun
     {
         if (pv.IsMine)
         {
+            _myLp.MoveSpeed = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).moveSpeed;
             _myLp.ammoText.text = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo.ToString() + "/" + ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).maxAmmo.ToString();
         }
     }
@@ -80,8 +83,10 @@ public class SingleShotGun : Gun
         Debug.Log("ammo updated" + (GunInfo)itemInfo);
         StartCoroutine(ShootCooldown());
         _muzzleFlashAnimator.SetTrigger("Shoot");
+        
+        LayerMask layerMask = ~ignoreBullet;
 
-        var hit = Physics2D.Raycast(_gunPoint.position, transform.up, (((GunInfo)itemInfo).weaponRange));
+        var hit = Physics2D.Raycast(_gunPoint.position, transform.up, (((GunInfo)itemInfo).weaponRange), layerMask);
 
         var trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
 

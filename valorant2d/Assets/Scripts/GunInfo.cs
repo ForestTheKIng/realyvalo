@@ -12,4 +12,5 @@ public class GunInfo : ItemInfo
     public int maxAmmo;
     public int ammo;
     public float reloadSpeed;
+    public float moveSpeed;
 }

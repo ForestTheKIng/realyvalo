@@ -15,7 +15,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
 {
     private const string _TEAM_PROPERTY_KEY = "team";
     public PlayerManager playerManager;
-    public float moveSpeed = 5f;
+    [NonSerialized] public float MoveSpeed;
     [SerializeField] Image healthbarImage;
     [SerializeField] GameObject ui;
     public Rigidbody2D rb;
@@ -62,6 +62,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(items);
         
         if(pv.IsMine)
         {
@@ -127,7 +128,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
         if (team == 0) {
             if(pv.IsMine)
             {
-                rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + movement * MoveSpeed * Time.fixedDeltaTime);
 
                 Vector2 lookDir = mousePos - rb.position;
                 float angle = Mathf.Atan2(lookDir.y ,lookDir.x) * Mathf.Rad2Deg - 90f;
@@ -136,7 +137,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
         } else if (team == 1) {
             if(pv.IsMine && jett.isDashing == false)
             {
-                rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + movement * MoveSpeed * Time.fixedDeltaTime);
 
                 Vector2 lookDir = mousePos - rb.position;
                 float angle = Mathf.Atan2(lookDir.y ,lookDir.x) * Mathf.Rad2Deg - 90f;
