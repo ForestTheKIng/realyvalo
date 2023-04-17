@@ -7,6 +7,5 @@ using System.IO;
 public abstract class Gun : Item
 {
     public abstract override void Use();
-    public abstract override void Reload();
     public GameObject bulletImpactPrefab;
 }

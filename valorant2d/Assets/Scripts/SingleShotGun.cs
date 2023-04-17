@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,55 +15,19 @@ public class SingleShotGun : Gun
     PlayerManager playerManager;
     private bool _onCooldown;
     private LocalPlayer _myLp;
-    private bool _reloading;
 
     PhotonView pv;
 
-    void Awake()
-    {
-
+    void Awake() {
         pv = GetComponent<PhotonView>();    
         playerManager = PhotonView.Find((int)pv.InstantiationData[0]).GetComponent<PlayerManager>();    
-        LocalPlayer[] localPlayers = FindObjectsOfType<LocalPlayer>();
-        foreach (LocalPlayer localPlayer in localPlayers)
-        {
-            if (pv.IsMine)
-            {
-                _myLp = localPlayer;
-                break;
-            }
-        }
-    }
-
-    private void Update()
-    {
-        if (pv.IsMine)
-        {
-            _myLp.ammoText.text = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo.ToString() + "/" + ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).maxAmmo.ToString();
-        }
-    }
-
-    public override void Reload()
-    {
-        StartCoroutine(ReloadCooldown());
     }
 
     public override void Use(){
-        if (!_onCooldown && ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo > 0 && !_reloading) 
+        if (!_onCooldown)
         {
             Shoot();
         }
-    }
-
-    private IEnumerator ReloadCooldown()
-    {
-        _reloading = true;
-        _myLp.reloadText.enabled = true;
-        yield return new WaitForSeconds(((GunInfo)itemInfo).reloadSpeed);
-        ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo = ((GunInfo)itemInfo).maxAmmo;
-        _myLp.reloadText.enabled = false;
-        _reloading = false;
-
     }
 
     private IEnumerator ShootCooldown()
@@ -76,12 +39,10 @@ public class SingleShotGun : Gun
 
     void Shoot()
     {
-        ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo -= 1;
-        Debug.Log("ammo updated" + (GunInfo)itemInfo);
         StartCoroutine(ShootCooldown());
         _muzzleFlashAnimator.SetTrigger("Shoot");
 
-        var hit = Physics2D.Raycast(_gunPoint.position, transform.up, (((GunInfo)itemInfo).weaponRange));
+        var hit = Physics2D.Raycast(_gunPoint.position, transform.up, (((GunInfo)itemInfo)._weaponRange));
 
         var trail = Instantiate(_bulletTrail, _gunPoint.position, transform.rotation);
 
@@ -90,26 +51,33 @@ public class SingleShotGun : Gun
         var trailScript = trail.GetComponent<BulletTrail>();
 
         if (hit.collider != null){
-            Debug.Log("hit");
             IDamageable idamageable = hit.collider.gameObject.GetComponent<IDamageable>();
             LocalPlayer lp = hit.collider.gameObject.GetComponent<LocalPlayer>();
+
+            LocalPlayer[] localPlayers = FindObjectsOfType<LocalPlayer>();
+            foreach (LocalPlayer localPlayer in localPlayers)
+            {
+                if (pv.IsMine)
+                {
+                    _myLp = localPlayer;
+                    break;
+                }
+            }
+        
             trailScript.SetTargetPosition(hit.point);
             if (idamageable != null)
             {
-                // Debug.Log("idamageable not null");
-                // Debug.Log("my LP: " + _myLp + _myLp.team + "Hit lp: " + lp.team + lp);
-                // if (_myLp.team != lp.team)
-                // {
-                        // Debug.Log("not same team dealing damage");
-                idamageable.TakeDamage(((GunInfo)itemInfo).damage);
-                // }
+                if (_myLp.team != lp.team)
+                {
+                    idamageable.TakeDamage(((GunInfo)itemInfo).damage);
+                }
             }
             if (hit.collider.gameObject.tag == "Player" && hit.collider.gameObject.GetComponent<LocalPlayer>().currentHealth <= 0){
                 playerManager.InstantiateKillFeedMessage(PhotonNetwork.NickName, hit.collider.gameObject.GetComponent<PhotonView>().Owner.NickName);
             }
             pv.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
         } else {
-            var endPosition = _gunPoint.position + transform.up * ((GunInfo)itemInfo).weaponRange; 
+            var endPosition = _gunPoint.position + transform.up * ((GunInfo)itemInfo)._weaponRange; 
             trailScript.SetTargetPosition(endPosition);
 
         }

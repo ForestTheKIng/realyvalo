@@ -22,6 +22,7 @@ public class PlantSpike : MonoBehaviourPunCallbacks
 
     public TMP_Text _defuseText;
 
+    [FormerlySerializedAs("_spikeScript")] public Spike spikeScript;
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other){
         trigged = true;

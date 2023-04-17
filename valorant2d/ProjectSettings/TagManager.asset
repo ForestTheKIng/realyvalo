@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Spike
   - HealthPack
-  - Minimap
   layers:
   - Default
   - TransparentFX
