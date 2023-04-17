@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Spectre
   damage: 30
-  _speed: 0
-  _weaponRange: 50
+  weaponRange: 30
   fireRate: 0.3
+  maxAmmo: 10
+  ammo: 10
+  reloadSpeed: 2.5

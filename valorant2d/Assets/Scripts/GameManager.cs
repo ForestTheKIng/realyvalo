@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         } else if (deadRedTeamPlayers == redTeamPlayers) {
             UpdateScore(0);
             Debug.Log("No red players");
-            NewRound();
+            NewRound(); 
         }
 
         if (gameStarted){

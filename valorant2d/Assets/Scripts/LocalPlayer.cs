@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Linq;
 using Unity.Mathematics;
+using TMPro;
 
 public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
 {
@@ -23,12 +24,14 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
     Vector2 mousePos;
     PhotonView pv;
     public Jett jett;
-    [SerializeField] Item[] items;
-    int itemIndex;
+    public Item[] items;
+    public int itemIndex;
     int previousItemIndex = -1;
     const float maxHealth = 100f;
     public float currentHealth = maxHealth;
     public int team;
+    public TMP_Text ammoText;
+    public TMP_Text reloadText;
 
 
     void Awake() 
@@ -59,7 +62,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
     // Update is called once per frame
     void Update()
     {
-      
+        
         if(pv.IsMine)
         {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -79,6 +82,11 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
         if (pv.IsMine){
             if (Input.GetMouseButtonDown(0)){
                 items[itemIndex].Use();
+            }
+
+            if (Input.GetKeyDown("r"))
+            {
+                items[itemIndex].Reload();
             }
         }
 
@@ -150,8 +158,9 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
         }
 
         if (currentHealth <= 0){
+            Debug.Log("dead");
             Die();
-            PlayerManager.Find(info.Sender).GetKill();
+            PlayerManager.Find(info.Sender).GetKill(); 
         }
 
     }
