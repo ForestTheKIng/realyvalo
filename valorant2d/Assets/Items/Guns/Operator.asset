@@ -19,3 +19,4 @@ MonoBehaviour:
   maxAmmo: 3
   ammo: 3
   reloadSpeed: 4
+  moveSpeed: 3

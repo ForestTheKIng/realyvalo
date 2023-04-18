@@ -18,6 +18,7 @@ public class Neon : MonoBehaviour
     public float NeonModeSpeed = 7.0f;
     public GameObject energyBar;
     PhotonView pv;
+    public bool inNeonMode;
 
     void Awake(){
         pv = GetComponent<PhotonView>();    
@@ -29,11 +30,12 @@ public class Neon : MonoBehaviour
             energyImage.fillAmount = currentEnergy / maxEnergy;
             if (Input.GetKey(KeyCode.LeftShift) && currentEnergy >= 0){
                 NeonMode();
-            } else {
+            } else
+            {
+                inNeonMode = false;
                 if (currentEnergy <= 100){
                     currentEnergy += 2 * Time.deltaTime;
                 }
-                localPlayer.MoveSpeed = 5f;
                 pp.SetActive(false);
                 outline.SetActive(false);
                 steps.GetComponent<ParticleSystem>().Pause();
@@ -43,7 +45,9 @@ public class Neon : MonoBehaviour
     }
 
 
-    void NeonMode() {
+    void NeonMode()
+    {
+        inNeonMode = true;
         energyBar.SetActive(true);
         currentEnergy -= 7 * Time.deltaTime;
         if (energyImage != null){

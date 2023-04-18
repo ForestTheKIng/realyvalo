@@ -19,11 +19,17 @@ public class SingleShotGun : Gun
     private bool _onCooldown;
     private LocalPlayer _myLp;
     private bool _reloading;
+    public Neon neon;
 
     PhotonView pv;
 
     void Awake()
     {
+        if (_myLp.GetComponent<Neon>() != null)
+        {
+            neon = _myLp.GetComponent<Neon>();
+        }
+        
 
         pv = GetComponent<PhotonView>();    
         playerManager = PhotonView.Find((int)pv.InstantiationData[0]).GetComponent<PlayerManager>();    
@@ -42,7 +48,13 @@ public class SingleShotGun : Gun
     {
         if (pv.IsMine)
         {
-            _myLp.MoveSpeed = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).moveSpeed;
+            if (!neon.inNeonMode)
+            {
+                _myLp.MoveSpeed = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).moveSpeed;
+            } else if (neon == null)
+            {
+                _myLp.MoveSpeed = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).moveSpeed;
+            }
             _myLp.ammoText.text = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo.ToString() + "/" + ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).maxAmmo.ToString();
         }
     }

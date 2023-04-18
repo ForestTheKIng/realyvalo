@@ -2339,7 +2339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
-  moveSpeed: 5
   healthbarImage: {fileID: 7012490089932445684}
   ui: {fileID: 2910543211744047721}
   rb: {fileID: 7403051017752085748}
