@@ -87,7 +87,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
 
             if (Input.GetKeyDown("r"))
             {
-                items[itemIndex].Reload();
+                ((Gun)items[itemIndex]).Reload();
             }
         }
 

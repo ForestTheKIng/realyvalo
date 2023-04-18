@@ -8,5 +8,4 @@ public abstract class Item : MonoBehaviour
     public GameObject itemGameObject;
 
     public abstract void Use();
-    public abstract void Reload();
 }

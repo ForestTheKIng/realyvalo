@@ -4,15 +4,9 @@
     <list default="true" id="1aac4ceb-0a5c-4b37-a239-5aac3a980e76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/JettContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/JettContainer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Haven.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Haven.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GunInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GunInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Item.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Neon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Neon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SingleShotGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SingleShotGun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +18,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Knife.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Melee.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/CameraMove/CameraMove.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -37,24 +33,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "CodeLensConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeLensConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\fdmcp\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\fdmcp\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\fdmcp\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../Builds for my games/Valo2d/CurrentTestBuild/Valorant 2d.exe" />
@@ -129,6 +125,7 @@
       <workItem from="1681683135129" duration="2022000" />
       <workItem from="1681698785687" duration="1959000" />
       <workItem from="1681761259870" duration="2593000" />
+      <workItem from="1681780948517" duration="612000" />
     </task>
     <servers />
   </component>

@@ -4,9 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 
-public abstract class Gun : Item
+public abstract class Melee : Item
 {
     public abstract override void Use();
-    public abstract void Reload();
-    public GameObject bulletImpactPrefab;
 }

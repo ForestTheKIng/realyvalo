@@ -134,8 +134,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383365285019778653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 1.93, z: 0}
-  m_LocalScale: {x: 0.23066397, y: 0.39276347, z: 0.11999999}
+  m_LocalPosition: {x: -0.169, y: 1.564, z: 0}
+  m_LocalScale: {x: 0.5743476, y: 0.39687943, z: 0.11999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 439828493338482208}
@@ -183,12 +183,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e08bae680de5f2947a4ddac152245e6e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d36945ce011dc7409a49ad4c2a4d755, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 21.602043, y: 19.83}
+  m_Size: {x: 3.23, y: 4.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2457,7 +2457,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
-  moveSpeed: 5
   healthbarImage: {fileID: 7012490089932445684}
   ui: {fileID: 2910543211744047721}
   rb: {fileID: 7403051017752085748}
