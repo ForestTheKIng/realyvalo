@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31566ec7e6df2c34a8f636b8f4ff41e3, type: 3}
-  m_Name: PrimeVandal
+  m_Name: Operator
   m_EditorClassIdentifier: 
-  itemName: Prime Vandal
-  damage: 40
+  itemName: Operator
+  damage: 100
   weaponRange: 100
-  fireRate: 0.5
-  maxAmmo: 5
-  ammo: 5
-  reloadSpeed: 2.5
+  fireRate: 4
+  maxAmmo: 3
+  ammo: 3
+  reloadSpeed: 4

@@ -7,7 +7,7 @@ using TMPro;
 using Photon.Realtime;
 using System.Linq;
 using ExitGames.Client.Photon.StructWrapping;
-using Mono.Cecil.Cil;
+using Unity.Mathematics;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public PhotonView pv;
 
     public GameObject controller;
+    public LocalPlayer lp;
 
     int kills;
     int deaths;
@@ -24,6 +25,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public GameObject killFeedItem;
 
     public int roundNumber;
+    public bool planted;
 
     [SerializeField] GameObject killFeedItemPrefab;
     [SerializeField] Transform killFeedContent;
@@ -52,10 +54,18 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         if (pv.IsMine){
             CreateController();
         }
+        
+
     }
     
 
+    public IEnumerator spikeDefuse()
+    {   
 
+        yield return new WaitForSeconds(4);
+        manager.UpdateScore(0);
+        manager.NewRound();
+    }
 
     void SpectateCam() {
         mCam = controller.transform.GetChild(0).gameObject;
@@ -67,19 +77,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     void Update(){
         if (spikeScript != null)
         {
-            spikeScript = manager.spikeScript.GetComponent<Spike>();
-            if (pv.IsMine && spikeScript.defusing)
-            { 
-                spikeScript.defuseText.text = "defusing...";
-            }
-            else if (spikeScript.defusing == false && pv.IsMine)
-            {
-                spikeScript.defuseText.text = "";
-            }
-        }
-        if (specCam != null && mCam != null)
-        {
-            if (spectate == true)
+            if (specCam != null && mCam != null)
             {
                 mCam.SetActive(false);
                 specCam.SetActive(true);
@@ -90,6 +88,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 specCam.SetActive(false);
             }
         }
+    }
+
+    public void UpdateTriggers(bool active)
+    {
+        Debug.Log("pm update trig");
+        manager.UpdateTriggers(active);
     }
 
     
@@ -109,6 +113,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                 Debug.LogError("Erorr: No team assigned");
             }
         }
+        
+        lp = controller.GetComponentInChildren<LocalPlayer>();
         SpectateCam();  
     }
     
@@ -144,7 +150,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
                     Debug.LogError("Erorr: No team assigned");
                 }
             }
-    
+            lp = controller.GetComponentInChildren<LocalPlayer>();
             SpectateCam();
         }
     }

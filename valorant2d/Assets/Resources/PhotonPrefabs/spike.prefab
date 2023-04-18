@@ -165,7 +165,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7266a7cdbaf328c479c8ca87c89788e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spikeTimer: 46
-  defusing: 0
-  defuseText: {fileID: 0}
-  SpikePlanted: 0

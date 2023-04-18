@@ -30,11 +30,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int blueScore = 0;
     public int redScore = 0;
     private PhotonView pv;
-    private PlayerManager manager;
-    [FormerlySerializedAs("spike")] public Spike spikeScript;
-    public GameObject spike;
+    private PlayerManager _pm;
     public GameObject triggers;
-    
+    public GameObject spike;
+
+
     private int team;
 
     private void Awake() {
@@ -113,17 +113,72 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (playerManager.pv.IsMine)
             {
                 // Set myPlayerManager to the PlayerManager owned by the local client
-                manager = playerManager;
+                _pm = playerManager;
 
                 // Stop searching for PlayerManagers
                 break;
             }
         }
 
-        gameStarted = true;
-        if (manager != null)
+        // Iterate through each player and check what team they are on
+        foreach (Photon.Realtime.Player player in players)
         {
-            manager.RunRPC();
+            // Get the player's team number from their custom properties
+            if (player.CustomProperties.TryGetValue("team", out object teamObj))
+            {
+                team = (int)teamObj;
+                if (team == 0) {
+                    blueTeamPlayers += 1;
+                } else if (team == 1) {
+                    redTeamPlayers += 1;
+                }
+                Debug.Log("blue team ammount is: " + blueTeamPlayers + " red team ammount is: " + redTeamPlayers);
+
+            }
+            else
+            {
+                // If the player doesn't have a team assigned, assign them to a default team
+                Debug.Log("Player " + player.NickName + " has no team assigned.");
+            }
+        }
+    }
+
+    public void UpdateScore(int teamNum)
+    {
+        pv.RPC("RPC_UpdateScore", RpcTarget.All, teamNum);
+    }
+
+    [PunRPC]
+    public void RPC_UpdateScore(int teamNum)
+    {
+        if (teamNum == 0)
+        {
+            blueScore += 1;
+        }
+        else
+        {
+            redScore += 1;
+        }
+    }
+
+    public void NewRound()
+    {
+        pv.RPC("RPC_NewRound", RpcTarget.All);
+    }
+    [PunRPC]
+    public void RPC_NewRound(){
+        spike = GameObject.Find("spike(Clone)");
+        Debug.Log("new round");
+        deadBlueTeamPlayers = 0;
+        deadRedTeamPlayers = 0;
+        currentTime = maxTime;
+        startCurrentTime = startGameTime;
+        gameStarted = false;
+        pv.RPC("RPC_DestroySpike", RpcTarget.All);
+        pv.RPC("RPC_UpdateTriggers", RpcTarget.All, true);
+        if (_pm != null)
+        {
+            _pm.RunRPC();
         }
         
     }
@@ -158,16 +213,42 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
+    [PunRPC]
+    void RPC_ResetScore()
+    {
+        blueScore = 0;
+        redScore = 0;
+    }
+
+    [PunRPC]
+    void RPC_DestroySpike()
+    {
+        Destroy(spike);
+    }
+
+    [PunRPC]
+    void RPC_UpdateTriggers(bool active)
+    {
+        triggers.SetActive(active);
+    }
+
+    public void UpdateTriggers(bool active)
+    {
+        Debug.Log("gm update trig");
+        pv.RPC("RPC_UpdateTriggers", RpcTarget.All, active);
+    }
+
 
     void Update()
     {
         redScoreText.text = "Red: " + redScore;
         blueScoreText.text = "Blue: " + blueScore;
+        
 
         if (redScore == 13){
-            Debug.Log("red won");
+            pv.RPC("RPC_ResetScore", RpcTarget.All);
         } else if (blueScore == 13){
-            Debug.Log("blue won");
+            pv.RPC("RPC_ResetScore", RpcTarget.All);
         }
 
         if (deadBlueTeamPlayers == blueTeamPlayers) {
@@ -175,12 +256,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.Log("no blue players");
             CallNewRoundRPC();
             
-        }
-        
-        if (deadRedTeamPlayers == redTeamPlayers) {
-            blueScore += 1;
+        } else if (deadRedTeamPlayers == redTeamPlayers) {
+            UpdateScore(0);
             Debug.Log("No red players");
-            CallNewRoundRPC();
+            NewRound(); 
         }
 
         if (gameStarted){
