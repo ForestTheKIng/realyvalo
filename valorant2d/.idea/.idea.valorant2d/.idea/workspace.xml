@@ -2,155 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1aac4ceb-0a5c-4b37-a239-5aac3a980e76" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/2nd Level Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/2nd Level Scripts/PlayerManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/2nd Level Scripts/PlayerManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/BulletTrail.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/BulletTrail.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/CameraDrag.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/CameraDrag.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/IDamageable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/IDamageable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Gun.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Gun.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/GunInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/GunInfo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Item.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Item.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/ItemInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/ItemInfo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Knife.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Knife.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Melee.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Melee.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/MeleeInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/MeleeInfo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/SingleShotGun.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/SingleShotGun.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Jett.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Jett.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/KillFeedItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/KillFeedItem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/LocalPlayer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/LocalPlayer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Menu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Menu.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/MenuManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/MenuManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/MoveCamera.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/MoveCamera.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Neon.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Neon.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/PlantSpike.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/PlantSpike.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/PlayerListItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/PlayerListItem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/PlayerNameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/PlayerNameManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Scoreboard.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Scoreboard.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ScoreboardItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ScoreboardItem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Settings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Settings.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Smoke.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Smoke.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/SpawnManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/SpawnManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/SpawnPoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/SpawnPoint.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Spike.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Spike.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/UsernameDisplay.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/UsernameDisplay.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/VectorsExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/VectorsExtension.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/GameManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/Launcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/Launcher.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/RoomManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ManagerScripts/RoomManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Items/Guns/Operator.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Guns/Operator.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Items/Guns/Skins/Prime/PrimeVandal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Guns/Skins/Prime/PrimeVandal.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Items/Guns/Spectre.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Guns/Spectre.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Items/Guns/Vandal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Items/Guns/Vandal.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BulletTrail.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BulletTrail.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraDrag.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraDrag.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gun.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gun.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GunInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GunInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Item.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Jett.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Jett.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/KillFeedItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/KillFeedItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Knife.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Knife.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Launcher.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Launcher.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalPlayer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalPlayer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Melee.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Melee.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MeleeInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MeleeInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Menu.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveCamera.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MoveCamera.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Neon.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Neon.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlantSpike.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlantSpike.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerListItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerListItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerNameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerNameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RoomManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RoomManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scoreboard.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scoreboard.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScoreboardItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScoreboardItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SingleShotGun.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SingleShotGun.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Smoke.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Smoke.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnPoint.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnPoint.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UsernameDisplay.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UsernameDisplay.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VectorsExtension.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VectorsExtension.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/refresh.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/refresh.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Knife.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Knife.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/MeleeInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/MeleeInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -268,7 +125,11 @@
       <workItem from="1681698785687" duration="1959000" />
       <workItem from="1681761259870" duration="2593000" />
       <workItem from="1681780948517" duration="1694000" />
-      <workItem from="1681783627823" duration="925000" />
+      <workItem from="1681783627823" duration="1683000" />
+      <workItem from="1682460684468" duration="3018000" />
+      <workItem from="1682644804580" duration="19000" />
+      <workItem from="1682646005474" duration="1438000" />
+      <workItem from="1683077883982" duration="1810000" />
     </task>
     <servers />
   </component>

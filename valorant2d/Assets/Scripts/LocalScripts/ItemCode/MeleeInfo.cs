@@ -7,6 +7,6 @@ using UnityEngine.Serialization;
 public class MeleeInfo : ItemInfo
 {
     public float damage;
-    public float slashRate;
+    public float slashDelay;
     public float moveSpeed;
 }

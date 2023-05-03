@@ -6,6 +6,6 @@ public class Knife : Melee
 {
     public override void Use()
     {
-        
+        Debug.Log("slashed");
     }
 }

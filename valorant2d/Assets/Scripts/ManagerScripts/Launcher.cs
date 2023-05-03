@@ -53,6 +53,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster(){
         Debug.Log("Joining lobby...");
         PhotonNetwork.JoinLobby();
+        Debug.Log("joinlobby called");
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
@@ -62,7 +63,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
     public void JoinTheLobby(){
-        PhotonNetwork.JoinLobby();
+        // PhotonNetwork.JoinLobby();
         Debug.Log("Joining lobby again...");
         PhotonNetwork.AutomaticallySyncScene = true;
     }
