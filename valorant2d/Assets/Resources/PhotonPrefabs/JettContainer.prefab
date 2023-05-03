@@ -804,6 +804,7 @@ MonoBehaviour:
   ignoreBullet:
     serializedVersion: 2
     m_Bits: 128
+  neon: {fileID: 0}
 --- !u!114 &5228515886826970936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,7 +1434,7 @@ MonoBehaviour:
   m_UseLocal: 1
 --- !u!95 &3651764128774584357
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1450,7 +1451,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &8230866444237745361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1882,6 +1884,7 @@ MonoBehaviour:
   ignoreBullet:
     serializedVersion: 2
     m_Bits: 128
+  neon: {fileID: 0}
 --- !u!114 &4121463512712232620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,6 +1963,7 @@ MonoBehaviour:
   ignoreBullet:
     serializedVersion: 2
     m_Bits: 128
+  neon: {fileID: 0}
 --- !u!114 &6114711651870721035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2060,7 +2064,7 @@ MonoBehaviour:
   m_UseLocal: 1
 --- !u!95 &8714082986611957555
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2077,7 +2081,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &8456246856798785458
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2457,6 +2462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  MoveSpeed: 0
   healthbarImage: {fileID: 7012490089932445684}
   ui: {fileID: 2910543211744047721}
   rb: {fileID: 7403051017752085748}
@@ -2467,6 +2473,7 @@ MonoBehaviour:
   - {fileID: 7148959342336440784}
   - {fileID: 865100349728567669}
   - {fileID: 7815575305469750634}
+  neon: {fileID: 0}
   itemIndex: 0
   currentHealth: 100
   team: 0
@@ -2754,6 +2761,7 @@ MonoBehaviour:
   ignoreBullet:
     serializedVersion: 2
     m_Bits: 128
+  neon: {fileID: 0}
 --- !u!114 &6925317375929920682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3002,7 +3010,7 @@ MonoBehaviour:
   m_UseLocal: 1
 --- !u!95 &1998481705
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3019,7 +3027,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1884687817059682119
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3171,7 +3180,7 @@ MonoBehaviour:
   m_UseLocal: 1
 --- !u!95 &5229865854121382138
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3188,7 +3197,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &3494699025234389767
 SpriteRenderer:
   m_ObjectHideFlags: 0

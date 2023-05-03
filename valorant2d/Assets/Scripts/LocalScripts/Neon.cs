@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using Unity.VisualScripting;
 using UnityEngine.Serialization;
 
 public class Neon : MonoBehaviour
@@ -15,13 +17,19 @@ public class Neon : MonoBehaviour
     public float currentEnergy = maxEnergy;
     [SerializeField] Image energyImage;
     [FormerlySerializedAs("player")] [FormerlySerializedAs("movement")] public LocalPlayer localPlayer;
-    public float NeonModeSpeed = 7.0f;
+    [NonSerialized] public float NeonModeSpeed;
     public GameObject energyBar;
     PhotonView pv;
     public bool inNeonMode;
 
     void Awake(){
-        pv = GetComponent<PhotonView>();    
+        pv = GetComponent<PhotonView>();
+    }
+
+    public void UpdateNeonEnergy()
+    {
+        NeonModeSpeed = ((GunInfo)localPlayer.items[localPlayer.itemIndex].itemInfo).moveSpeed;
+        NeonModeSpeed += 2;
     }
 
     void Update()
@@ -34,7 +42,7 @@ public class Neon : MonoBehaviour
             {
                 inNeonMode = false;
                 if (currentEnergy <= 100){
-                    currentEnergy += 2 * Time.deltaTime;
+                    currentEnergy += 3 * Time.deltaTime;
                 }
                 pp.SetActive(false);
                 outline.SetActive(false);

@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1aac4ceb-0a5c-4b37-a239-5aac3a980e76" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.valorant2d/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Knife.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/Knife.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/MeleeInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/MeleeInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/JettContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/JettContainer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/NeonContainer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/SingleShotGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/ItemCode/SingleShotGun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/LocalPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/LocalPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Neon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LocalScripts/Neon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/operator-removebg-preview.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/operator-removebg-preview.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +129,7 @@
       <workItem from="1682460684468" duration="3018000" />
       <workItem from="1682644804580" duration="19000" />
       <workItem from="1682646005474" duration="1438000" />
-      <workItem from="1683077883982" duration="1810000" />
+      <workItem from="1683077883982" duration="5834000" />
     </task>
     <servers />
   </component>

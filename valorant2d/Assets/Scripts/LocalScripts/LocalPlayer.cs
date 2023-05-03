@@ -15,7 +15,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
 {
     private const string _TEAM_PROPERTY_KEY = "team";
     public PlayerManager playerManager;
-    [NonSerialized] public float MoveSpeed;
+    public float MoveSpeed;
     [SerializeField] Image healthbarImage;
     [SerializeField] GameObject ui;
     public Rigidbody2D rb;
@@ -25,6 +25,7 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
     PhotonView pv;
     public Jett jett;
     public Item[] items;
+    public Neon neon;
     public int itemIndex;
     int previousItemIndex = -1;
     const float maxHealth = 100f;
@@ -92,28 +93,37 @@ public class LocalPlayer : MonoBehaviourPunCallbacks, IDamageable
         }
 
     }
-    
 
-    void EquipItem(int _index){
 
-        if (_index == previousItemIndex){
+    void EquipItem(int _index)
+    {
+
+        if (_index == previousItemIndex)
+        {
             return;
         }
 
         itemIndex = _index;
 
         items[itemIndex].itemGameObject.SetActive(true);
-        if (previousItemIndex != -1){
+        if (previousItemIndex != -1)
+        {
             items[previousItemIndex].itemGameObject.SetActive(false);
         }
 
         previousItemIndex = itemIndex;
 
-        if (pv.IsMine){
+        if (pv.IsMine)
+        {
             Hashtable hash = new Hashtable();
 
             hash.Add("itemIndex", itemIndex);
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        }
+
+        if (neon != null)
+        {
+            neon.UpdateNeonEnergy();
         }
     }
 

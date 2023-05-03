@@ -23,14 +23,8 @@ public class SingleShotGun : Gun
 
     PhotonView pv;
 
-    void Awake()
+    private void Awake()
     {
-        if (_myLp.GetComponent<Neon>() != null)
-        {
-            neon = _myLp.GetComponent<Neon>();
-        }
-        
-
         pv = GetComponent<PhotonView>();    
         playerManager = PhotonView.Find((int)pv.InstantiationData[0]).GetComponent<PlayerManager>();    
         LocalPlayer[] localPlayers = FindObjectsOfType<LocalPlayer>();
@@ -42,20 +36,31 @@ public class SingleShotGun : Gun
                 break;
             }
         }
+        
+        Debug.Log(_myLp);
+        
+        if (_myLp.GetComponent<Neon>() != null)
+        {
+            neon = _myLp.GetComponent<Neon>();
+        }
     }
 
     private void Update()
     {
         if (pv.IsMine)
-        {
+        {   
+            if (neon == null)
+            {
+                _myLp.MoveSpeed = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).moveSpeed;
+                _myLp.ammoText.text = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo.ToString() + "/" + ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).maxAmmo.ToString();
+                return;
+            }
+            
             if (!neon.inNeonMode)
             {
                 _myLp.MoveSpeed = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).moveSpeed;
-            } else if (neon == null)
-            {
-                _myLp.MoveSpeed = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).moveSpeed;
-            }
-            _myLp.ammoText.text = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo.ToString() + "/" + ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).maxAmmo.ToString();
+                _myLp.ammoText.text = ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).ammo.ToString() + "/" + ((GunInfo)_myLp.items[_myLp.itemIndex].itemInfo).maxAmmo.ToString();
+            } 
         }
     }
 
